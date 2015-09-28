@@ -1,0 +1,179 @@
+#!/bin/sh
+
+#---------------------------{
+# place gdi files
+if [ "`pwd`" = "/usr/bin" ]; then
+	export	PATH1="/usr/share/gdi"
+else
+	export	PATH1="`pwd`"
+fi
+echo $PATH1
+#---------------------------}
+
+
+# Checking root
+#if [[ $EUID -ne 0 ]]; then
+#	. "$PATH1"/WarningRoot
+#fi
+
+
+# Create folder idf not exist.
+if [ -d /tmp/gdi ]
+then
+	echo "Info: File /tmp/gdi exist."
+	rm -fvr /tmp/gdi
+	mkdir /tmp/gdi
+else
+	mkdir /tmp/gdi
+	echo "Info: File /tmp/gdi created."
+fi
+
+
+# Path to /tmp/gdi
+export TMPDIR=/tmp/"$(basename $0)"
+
+
+# Load all functions from "functions" file
+. "$PATH1/functions"
+
+
+# Load Buttons status
+FuncButtonsActivity
+
+
+
+
+
+
+
+
+GTKDIALOG=gtkdialog
+
+export MAIN_DIALOG='
+<window title="GDI">
+	<vbox>
+		<frame Description:>
+				<text>
+					<label>"
+- Red ball means desktop environment is uninstalled.
+- Green ball means desktop environment is installed.
+					"</label>
+				</text>
+		</frame>
+		<frame Status>
+<vbox>
+
+		<hbox homogeneous="true">
+			<hbox>
+				<text>
+					<label>KDE4  </label>
+				</text>
+				<pixmap>
+					<input file>'"$TMPDIR"'/StateBallKde.png</input>
+					<variable>BallKde</variable>
+        		</pixmap>
+			</hbox>
+			<button>
+				<label>Kde  Install / Uninstall</label>
+				<variable>KdeInstall</variable>
+				<input file icon="bottom"></input>
+				<action>echo "You pressed button Kde Install"</action>
+				<action>GRAPHIC=Kde; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+				<action>FuncWarningAsk</action>
+				<action function="refresh">BallKde</action>
+			</button>
+
+		</hbox>
+
+		<hbox homogeneous="true">
+			<hbox>
+				<text>
+					<label>LXDE  </label>
+				</text>
+				<pixmap>
+					<input file>'"$TMPDIR"'/StateBallLxde.png</input>
+					<variable>BallLxde</variable>
+        		</pixmap>
+			</hbox>
+			<button>
+				<label>Lxde Install / Uninstall</label>
+				<variable>LxdeInstall</variable>
+				<input file icon="bottom"></input>
+				<action>echo "You pressed button Lxde Install."</action>
+				<action>GRAPHIC=Lxde; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+				<action>FuncWarningAsk</action>
+				<action function="refresh">BallLxde</action>
+			</button>
+
+		</hbox>
+
+		<hbox homogeneous="true">
+			<hbox>
+				<text>
+					<label>MATE  </label>
+				</text>
+				<pixmap>
+					<input file>'"$TMPDIR"'/StateBallMate.png</input>
+					<variable>BallMate</variable>
+        		</pixmap>
+			</hbox>
+			<button>
+				<label>Mate Install / Uninstall</label>
+				<variable>MateInstall</variable>
+				<input file icon="bottom"></input>
+				<action>echo "You pressed button Mate Install"</action>
+				<action>GRAPHIC=Mate; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+				<action>FuncWarningAsk</action>
+				<action function="refresh">BallMate</action>
+			</button>
+
+		</hbox>
+
+		<hbox homogeneous="true">
+			<hbox>
+				<text>
+					<label>XFCE4</label>
+				</text>
+				<pixmap>
+					<input file>'"$TMPDIR"'/StateBallXfce.png</input>
+					<variable>BallXfce</variable>
+        		</pixmap>
+			</hbox>
+			<button>
+				<label>Xfce Install / Uninstall</label>
+				<variable>XfceInstall</variable>
+				<input file icon="bottom"></input>
+				<action>echo "You pressed button Xfce Install"</action>
+				<action>GRAPHIC=Xfce; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+				<action>FuncWarningAsk</action>
+				<action function="refresh">BallXfce</action>
+			</button>
+
+		</hbox>
+</vbox>
+		</frame>
+		<hbox>
+			<button>
+				<label>Exit</label>
+				<input file icon="exit"></input>
+				<action>echo You pressed exit button</action>
+				<action type="exit">Exit by button</action>
+			</button>
+		</hbox>
+			<button>
+				<input file>'"$PATH1"'/test1.png</input>
+				<action>echo "You pressed GDI button"</action>
+				<action>. '"$PATH1"'/WindowAbout</action>
+			</button>
+	</vbox>
+</window>
+'
+
+gtkdialog -c  --program MAIN_DIALOG
+echo "Program has finished"
+
+
+
+
+
+

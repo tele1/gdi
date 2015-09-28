@@ -1,0 +1,27 @@
+#!/bin/sh
+
+export Barrier='
+<window title="Barrier" icon-name="gtk-dialog-warning" default_width="50">
+<vbox>
+	<frame>
+		<hbox>
+				<pixmap icon_size="6">
+					<input file stock="gtk-dialog-warning"></input>
+				</pixmap>
+
+
+				<text use-markup="true">
+					<label>"<span size='"'large'"' color='"'red'"'>Warning:    You have only 1 desktop enviroment installed
+ and you can not uninstall last. </span>"</label>
+				</text>
+		</hbox>
+
+	</frame>
+
+		<hbox>
+			<button no></button>
+		</hbox>
+	</vbox>
+</window> 
+'
+	gtkdialog -c  --program Barrier

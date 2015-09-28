@@ -1,0 +1,94 @@
+#!/bin/sh
+
+
+
+#---------------------------{
+# place of work
+if [ "`pwd`" = "/usr/bin" ]; then
+	export	PATH2="/usr/share/gdi/"
+else
+	export	PATH2="`pwd`/"
+fi
+#---------------------------}
+
+
+
+
+
+
+export WindowAbout='
+<window title="About GDI"  window-position="1"	modal="true" resizable="false">
+	<vbox>
+		<eventbox name="AboutHeader">
+			<hbox>
+				<pixmap space-expand="false" space-fill="false">
+					<width>48</width>
+					<height>48</height>
+					<input file>'"$PATH2"'/gdi.png</input>
+				</pixmap>
+				<text use-markup="true" space-expand="false" space-fill="false">
+					<label>"<span fgcolor='"'"'white'"'"'><big><b>'GDI'</b></big></span>"</label>
+				</text>
+			</hbox>
+		</eventbox>
+
+
+
+		<notebook tab-labels="Info|Licence">
+			<vbox border-width="5">
+
+				<text use-markup="true">
+					<label>"
+<b>Graphical desktop environment installation manager.</b>"</label>
+				</text>
+
+				<hbox homogeneous="true" space-expand="false" space-fill="false">
+					<button relief="2">
+						<label>Made with Gtkdialog</label>
+						<action>funcURLOpen "http://code.google.com/p/gtkdialog/"</action>
+					</button>
+				</hbox>
+
+				<text justify="2">
+					<label>"Copyright (c) 2015
+marcin82
+tele   
+"</label>
+				</text>
+
+					<button relief="2">
+						<label>Contact Us: Forum PCLinuxOS PL</label>
+						<action>funcURLOpen "http://www.pclinuxos.com/forum/index.php/board,15.0.html"</action>
+					</button>
+
+			</vbox>
+
+
+			<vbox>
+				<text justify="2">
+					<label>"
+GDI:
+                   "</label>
+				</text>
+				<hbox homogeneous="true" space-expand="false" space-fill="false">
+					<button relief="2">
+						<label>GNU GENERAL PUBLIC LICENSE ver.3</label>
+						<action>funcURLOpen "http://www.gnu.org/licenses/gpl-3.0.en.html"</action>
+					</button>
+				</hbox>
+			</vbox>
+
+
+
+
+		</notebook>
+		<hbox space-expand="false" space-fill="false">
+			<button use-stock="true" label="gtk-close" width-request="90">
+				<action>closewindow:winAbout</action>
+			</button>
+		</hbox>
+	</vbox>
+	<variable export="false">winAbout</variable>
+</window>
+'
+gtkdialog -c  --program WindowAbout

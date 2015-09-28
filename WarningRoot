@@ -1,0 +1,30 @@
+#!/bin/sh
+
+GTKDIALOG=gtkdialog
+
+export WarningRoot='
+	<vbox>
+		<frame>
+			<hbox>
+				<pixmap icon_size="6">
+					<input file stock="gtk-dialog-warning"></input>
+				</pixmap>
+				<vbox>
+				<text use-markup="true">
+					<label>"<span size='"'large'"' color='"'red'"'>Warning:    This script must be run as superuser (root)! </span>"</label>
+				</text>
+				</vbox>
+			</hbox>
+		</frame>
+		<hbox>
+			<button>
+				<label>exit</label>
+				<input file icon="exit"></input>
+				<action>echo You pressed exit button</action>
+				<action type="exit">Exit by button</action>
+			</button>
+		</hbox>
+	</vbox>'
+
+gtkdialog -c --program WarningRoot
+exit 1

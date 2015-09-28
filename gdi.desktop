@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=GDI
+Name[en_GB]=GDI
+GenericName=GDI
+GenericName[en_GB]=GDI
+Comment=PCLinuxOS desktop environment installation manager
+Comment[en_GB]=PCLinuxOS desktop environment installation manager
+Exec=gksu -u root /usr/bin/gdi
+Icon=gdi.png
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=PackageManager;GTK;System;Application;X-MandrivaLinux-System-Configuration-Packaging;
+
+

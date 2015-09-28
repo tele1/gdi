@@ -1,0 +1,162 @@
+#!/bin/sh
+
+
+
+
+#############################################################################################################
+#          WarningAsk
+#-----------------------------------------------------------------------------------------------------------{
+function FuncWarningAsk() {
+
+#---------------------------{
+# place gdi files
+if [ "`pwd`" = "/usr/bin" ]; then
+	export	PATH1="/usr/share/gdi"
+else
+	export	PATH1="`pwd`"
+fi
+echo $PATH1
+#---------------------------}
+
+
+# srodowisko=KDE,LXDE ...
+export GRAPHIC=$(awk 'NR==1'  /tmp/gdi/action)
+
+
+#-----------------------------------------------------------------------{
+
+LINK1=$(file /tmp/gdi/StateBall${GRAPHIC}.png)
+
+if echo $LINK1 | grep -q "red_ball"; then
+export	BALL="green_ball"
+export	WORK="Install"
+elif echo $LINK1 | grep -q "green_ball"; then
+export	BALL="red_ball"
+export	WORK="Uninstall"
+else
+	echo "Error: Not found link ball in /tmp/gdi/StateBall${GRAPHIC}.png  "
+fi
+
+#-----------------------------------------------------------------------}
+
+export ASK="Are you sure you want $WORK $GRAPHIC ?		"
+	echo "You choose: $WORK , $GRAPHIC"
+
+#---------------------------------------------------------------------------------------------
+	COUNT=$(ls -l /tmp/gdi/ | grep StateBall | grep green_ball | wc -l)
+	echo "Installed desktop enviroments: $COUNT"
+#---------------------------------------------------------------------------------------------
+
+
+
+#-------------------------------------------------------{
+# if is less than or equal to 1
+if [[ "$COUNT" -le "1" ]]; then
+
+	if [ "$WORK" = "Uninstall" ]; then
+		./WarningBarrier
+	else
+		./WarningAsk	
+	fi
+
+else
+		./WarningAsk
+fi
+#-------------------------------------------------------}
+
+	}
+export -f FuncWarningAsk
+#----------------------------------------------------------------------------------------------------------}
+#          WarningAsk
+#############################################################################################################
+
+
+
+
+##########################################################################################################
+																										##
+#-----------------------------------------------------------------------------{
+function FuncButtonsActivity() {
+	MSG="Zainstalowane środowisko graficzne:"
+	INSTDE=$(grep -h "Name=" /etc/X11/dm/Sessions/* | cut -c 6-)
+
+# KDE
+			test1=$(echo "$INSTDE" | grep -v "Openbox-KDE" | grep "KDE")
+			if [[ "$test1" == "KDE" ]]; then
+				echo $MSG KDE4
+				ln -sfn `pwd`/green_ball.png "$TMPDIR"/StateBallKde.png
+			else
+				ln -sfn `pwd`/red_ball.png "$TMPDIR"/StateBallKde.png
+			fi
+
+# LXDE
+			if [[ "$INSTDE" == *"LXDE"* ]]; then
+				echo $MSG LXDE
+				ln -sfn `pwd`/green_ball.png "$TMPDIR"/StateBallLxde.png
+			else
+				ln -sfn `pwd`/red_ball.png "$TMPDIR"/StateBallLxde.png
+			fi
+
+# MATE
+			if [[ "$INSTDE" == *"MATE"* ]]; then
+				echo $MSG MATE
+				ln -sfn `pwd`/green_ball.png "$TMPDIR"/StateBallMate.png
+			else
+				ln -sfn `pwd`/red_ball.png "$TMPDIR"/StateBallMate.png
+			fi
+
+# XFCE
+			if [[ "$INSTDE" == *"xfce4"* ]]; then
+				echo $MSG Xfce4
+				ln -sfn `pwd`/green_ball.png "$TMPDIR"/StateBallXfce.png
+			else
+				ln -sfn `pwd`/red_ball.png "$TMPDIR"/StateBallXfce.png
+			fi
+}
+export -f FuncButtonsActivity
+#-----------------------------------------------------------------------------}
+
+																										##
+##########################################################################################################
+
+
+
+
+##########################################################################################################
+function funcURLOpen() {
+	if [ -z "$BASH" ]; then local FUNCNAME=funcURLOpen; fi
+
+	## Local variables.
+	local browser=
+
+	if [ -n "$BROWSER" ]; then
+		browser="$BROWSER"
+	elif [ -n "$DEFAULTBROWSER" ]; then
+		browser="$DEFAULTBROWSER"
+	elif [ `command -v mozilla` ]; then
+		browser=mozilla
+	elif [ `command -v firefox` ]; then
+		browser=firefox
+	elif [ `command -v chromium` ]; then
+		browser=chromium
+	elif [ `command -v opera` ]; then
+		browser=opera
+	elif [ `command -v konqueror` ]; then
+		browser=konqueror
+	elif [ `command -v midori` ]; then
+		browser=midori
+	elif [ `command -v dillo` ]; then
+		browser=dillo
+	fi
+
+
+
+	if [ -n "$browser" ]; then
+		$browser "$1" &
+	else
+		echo "$FUNCNAME(): Couldn't find a suitable browser."
+	fi
+
+}
+export -f funcURLOpen
+##########################################################################################################
