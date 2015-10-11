@@ -2,14 +2,7 @@
 
 
 
-#---------------------------{
-# place of work
-if [ "`pwd`" = "/usr/bin" ]; then
-	export	PATH2="/usr/share/gdi/"
-else
-	export	PATH2="`pwd`/"
-fi
-#---------------------------}
+
 
 
 
@@ -24,7 +17,7 @@ export WindowAbout='
 				<pixmap space-expand="false" space-fill="false">
 					<width>48</width>
 					<height>48</height>
-					<input file>'"$PATH2"'/gdi.png</input>
+					<input file>'"$PATH1"'/gdi.png</input>
 				</pixmap>
 				<text use-markup="true" space-expand="false" space-fill="false">
 					<label>"<span fgcolor='"'"'white'"'"'><big><b>'GDI'</b></big></span>"</label>

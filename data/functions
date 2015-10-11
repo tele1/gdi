@@ -1,6 +1,8 @@
 #!/bin/sh
 
-
+echo "-----------"
+echo "$PATH1 - PATH1"
+echo "-----------"
 
 
 #############################################################################################################
@@ -8,15 +10,7 @@
 #-----------------------------------------------------------------------------------------------------------{
 function FuncWarningAsk() {
 
-#---------------------------{
-# place gdi files
-if [ "`pwd`" = "/usr/bin" ]; then
-	export	PATH1="/usr/share/gdi"
-else
-	export	PATH1="`pwd`"
-fi
-echo $PATH1
-#---------------------------}
+
 
 
 # srodowisko=KDE,LXDE ...
@@ -54,13 +48,13 @@ export ASK="Are you sure you want $WORK $GRAPHIC ?		"
 if [[ "$COUNT" -le "1" ]]; then
 
 	if [ "$WORK" = "Uninstall" ]; then
-		./WarningBarrier
+		$PATH1/WarningBarrier
 	else
-		./WarningAsk	
+		$PATH1/WarningAsk	
 	fi
 
 else
-		./WarningAsk
+		$PATH1/WarningAsk
 fi
 #-------------------------------------------------------}
 
@@ -84,33 +78,33 @@ function FuncButtonsActivity() {
 			test1=$(echo "$INSTDE" | grep -v "Openbox-KDE" | grep "KDE")
 			if [[ "$test1" == "KDE" ]]; then
 				echo $MSG KDE4
-				ln -sfn `pwd`/green_ball.png "$TMPDIR"/StateBallKde.png
+				ln -sfn $PATH1/green_ball.png "$TMPDIR"/StateBallKde.png
 			else
-				ln -sfn `pwd`/red_ball.png "$TMPDIR"/StateBallKde.png
+				ln -sfn $PATH1/red_ball.png "$TMPDIR"/StateBallKde.png
 			fi
 
 # LXDE
 			if [[ "$INSTDE" == *"LXDE"* ]]; then
 				echo $MSG LXDE
-				ln -sfn `pwd`/green_ball.png "$TMPDIR"/StateBallLxde.png
+				ln -sfn $PATH1/green_ball.png "$TMPDIR"/StateBallLxde.png
 			else
-				ln -sfn `pwd`/red_ball.png "$TMPDIR"/StateBallLxde.png
+				ln -sfn $PATH1/red_ball.png "$TMPDIR"/StateBallLxde.png
 			fi
 
 # MATE
 			if [[ "$INSTDE" == *"MATE"* ]]; then
 				echo $MSG MATE
-				ln -sfn `pwd`/green_ball.png "$TMPDIR"/StateBallMate.png
+				ln -sfn $PATH1/green_ball.png "$TMPDIR"/StateBallMate.png
 			else
-				ln -sfn `pwd`/red_ball.png "$TMPDIR"/StateBallMate.png
+				ln -sfn $PATH1/red_ball.png "$TMPDIR"/StateBallMate.png
 			fi
 
 # XFCE
 			if [[ "$INSTDE" == *"xfce4"* ]]; then
 				echo $MSG Xfce4
-				ln -sfn `pwd`/green_ball.png "$TMPDIR"/StateBallXfce.png
+				ln -sfn $PATH1/green_ball.png "$TMPDIR"/StateBallXfce.png
 			else
-				ln -sfn `pwd`/red_ball.png "$TMPDIR"/StateBallXfce.png
+				ln -sfn $PATH1/red_ball.png "$TMPDIR"/StateBallXfce.png
 			fi
 }
 export -f FuncButtonsActivity

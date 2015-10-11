@@ -5,9 +5,8 @@
 if [ "`pwd`" = "/usr/bin" ]; then
 	export	PATH1="/usr/share/gdi"
 else
-	export	PATH1="`pwd`"
+	export	PATH1="`pwd`/data"
 fi
-echo $PATH1
 #---------------------------}
 
 
