@@ -22,11 +22,11 @@ export GRAPHIC=$(awk 'NR==1'  /tmp/gdi/action)
 LINK1=$(file /tmp/gdi/StateBall${GRAPHIC}.png)
 
 if echo $LINK1 | grep -q "red_ball"; then
-export	BALL="green_ball"
-export	WORK="Install"
+	export	BALL="green_ball"
+	export	WORK="Install"
 elif echo $LINK1 | grep -q "green_ball"; then
-export	BALL="red_ball"
-export	WORK="Uninstall"
+	export	BALL="red_ball"
+	export	WORK="Uninstall"
 else
 	echo "Error: Not found link ball in /tmp/gdi/StateBall${GRAPHIC}.png  "
 fi

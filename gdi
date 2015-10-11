@@ -11,9 +11,9 @@ fi
 
 
 # Checking root
-#if [[ $EUID -ne 0 ]]; then
-#	. "$PATH1"/WarningRoot
-#fi
+if [[ $EUID -ne 0 ]]; then
+	. "$PATH1"/WarningRoot
+fi
 
 
 # Create folder idf not exist.

@@ -1,6 +1,17 @@
 #! /bin/sh
 
 
+
+# Action  ----------------------------
+function Action() {
+
+
+	}
+export -f Action
+# Action  ----------------------------
+
+
+
 export WarningAsk='
 <window title="WarningAsk" icon-name="gtk-dialog-warning">
 
