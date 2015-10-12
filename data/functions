@@ -24,9 +24,11 @@ LINK1=$(file /tmp/gdi/StateBall${GRAPHIC}.png)
 if echo $LINK1 | grep -q "red_ball"; then
 	export	BALL="green_ball"
 	export	WORK="Install"
+	export  APT="install"
 elif echo $LINK1 | grep -q "green_ball"; then
 	export	BALL="red_ball"
 	export	WORK="Uninstall"
+	export  APT="remove"
 else
 	echo "Error: Not found link ball in /tmp/gdi/StateBall${GRAPHIC}.png  "
 fi
@@ -35,6 +37,15 @@ fi
 
 export ASK="Are you sure you want $WORK $GRAPHIC ?		"
 	echo "You choose: $WORK , $GRAPHIC"
+
+
+function FuncAction() {
+	NAMELOG="$(date +"%Y-%m-%d %R %S").log"
+echo -e "$WORK , $GRAPHIC `date` \n" > "$NAMELOG"
+apt-get -y $APT $(cat $PATH1/${GRAPHIC}.list) >> "$NAMELOG"
+	}
+export -f FuncAction
+
 
 #---------------------------------------------------------------------------------------------
 	COUNT=$(ls -l /tmp/gdi/ | grep StateBall | grep green_ball | wc -l)

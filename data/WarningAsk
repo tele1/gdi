@@ -2,13 +2,7 @@
 
 
 
-# Action  ----------------------------
-function Action() {
 
-
-	}
-export -f Action
-# Action  ----------------------------
 
 
 
@@ -39,7 +33,7 @@ export WarningAsk='
 				<action>echo "You pressed Yes button."</action>
 
 
-
+				<action>FuncAction</action>
 				<action>ln -fsn "'$PATH1'/'${BALL}'.png" "/tmp/gdi/StateBall'${GRAPHIC}'.png"</action>
 				<action type="closewindow">"warningaskwindow"</action>
 			</button>
