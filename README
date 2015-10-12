@@ -1,18 +1,21 @@
 
 
-GDI - PCLinuxOS desktop environment installation manager.
+GDI 		- PCLinuxOS desktop environment installation manager.
+			- Designed for PCLinuxOS system.
+
+Version		- 8
 
 
 	This version is alpha still, so something can fail,
-or remove needed packages from system and broke.
+	or remove needed packages from system and broke.
 
 
 
 
  == HOW RUN ==
 
-	gksu ./gdi
+		gksu ./gdi
 
-or just from root
+	or just from root
 
-	./gdi
+		./gdi
