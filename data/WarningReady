@@ -1,0 +1,47 @@
+#! /bin/sh
+
+
+
+
+
+
+
+export WarningAsk='
+<window title="WarningAsk" icon-name="gtk-dialog-warning">
+
+
+<vbox> 
+	<frame>
+
+		<hbox>
+			<pixmap icon_size="6">
+				<input file stock="gtk-dialog-warning"></input>
+			</pixmap>
+
+				<vbox>
+					<text>
+						<label>"Ready!"</label>
+					</text>
+				</vbox>
+
+
+		</hbox>
+
+	</frame>
+
+		<hbox>
+
+
+
+
+			<button ok>
+			</button>
+
+		</hbox>
+</vbox> 
+</window>  
+'
+	gtkdialog -c  --program WarningAsk
+
+
+

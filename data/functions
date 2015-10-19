@@ -70,9 +70,13 @@ function FuncAction() {
 
 	if [ $(<"$TMPDIR"/action) = 1 ]; then
 		echo -e "apt-get -y $APT \$(cat $PATH1/${GRAPHIC}.list) | tee "$NAMELOG"" > "/tmp/gdi/commands"
-#		echo "exit" >> "/tmp/gdi/commands"
+		echo "exit" >> "/tmp/gdi/commands"
+
 		$PATH1/WindowTerminal
-		ln -fsn "'$PATH1'/'${BALL}'.png" "/tmp/gdi/StateBall'${GRAPHIC}'.png"
+		ln -fsn "$PATH1/${BALL}.png" "/tmp/gdi/StateBall${GRAPHIC}.png"
+		echo "$PATH1/${BALL}.png /tmp/gdi/StateBall${GRAPHIC}.png"
+		$PATH1/WarningReady
+		echo "End FuncAction"
 	else
 		echo "Nothing to do"
 	fi

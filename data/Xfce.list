@@ -1,4 +1,3 @@
-lib64glade2.0_0
 lib64gladeui1_11
 garcon
 lib64garcon0
@@ -9,7 +8,6 @@ thunar
 xfce4-icon-theme
 xfce4-mixer
 xfce4-panel
-xfce4-session
 xfce4-settings
 xfconf
 xfdesktop
@@ -19,3 +17,4 @@ mousepad
 xfce4-cpugraph-plugin
 xfce4-screenshooter
 thunar-volman
+xfce4-session

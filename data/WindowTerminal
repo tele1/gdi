@@ -21,12 +21,12 @@ export MAIN_DIALOG='
 				<height>20</height>
 				<width>75</width>
 				<input file>"/tmp/gdi/commands"</input>
-<action function="closewindow">terminal1</action>
+				<action function="closewindow">terminal1</action>
 			</terminal>
 
 		</frame>
 		<hbox>
-			<button ok>
+			<button cancel>
 			</button>
 		</hbox>
 	</vbox>

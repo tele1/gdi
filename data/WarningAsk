@@ -44,7 +44,8 @@ export WarningAsk='
 
 
 			<button no>
-
+				<action>echo "0" > '"$TMPDIR"'/action</action>
+				<action type="closewindow">"warningaskwindow"</action>
 			</button>
 
 		</hbox>
@@ -52,6 +53,9 @@ export WarningAsk='
 </window>  
 '
 	gtkdialog -c  --program WarningAsk
+
+#
+
 
 
 #				<action>FuncAction</action>
