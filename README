@@ -11,11 +11,36 @@ Version		- 8
 
 
 
+		== IMPORTANT DEPENDENCIES ==
+/etc/X11/dm/Sessions/*
+gtkdialog
 
- == HOW RUN ==
+
+
+
+		== HOW RUN ==
 
 		gksu ./gdi
 
 	or just from root
 
 		./gdi
+
+
+
+
+
+tips:
+# list files kde
+apt-cache depends task-kde4 | cut -d" " -f4
+
+list:
+# grep -h "Name=" /etc/X11/dm/Sessions/* | cut -c 6-
+KDE
+LXDE
+MATE
+xfce4
+Openbox
+Openbox-KDE
+Openbox-Gnome
+

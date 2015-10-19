@@ -23,26 +23,48 @@ export WarningAsk='
 						<label>'"$ASK"'</label>
 					</text>
 				</vbox>
+
+
 		</hbox>
 
 	</frame>
 
 		<hbox>
+
 			<button yes>
 				<variable>warningaskwindow</variable>
 				<action>echo "You pressed Yes button."</action>
 
 
-				<action>FuncAction</action>
-				<action>ln -fsn "'$PATH1'/'${BALL}'.png" "/tmp/gdi/StateBall'${GRAPHIC}'.png"</action>
+
+				<action>echo "1" > '"$TMPDIR"'/action</action>
+
 				<action type="closewindow">"warningaskwindow"</action>
 			</button>
 
 
-				<button no>
+			<button no>
+
 			</button>
+
 		</hbox>
 </vbox> 
 </window>  
 '
 	gtkdialog -c  --program WarningAsk
+
+
+#				<action>FuncAction</action>
+#				<action>ln -fsn "'$PATH1'/'${BALL}'.png" "/tmp/gdi/StateBall'${GRAPHIC}'.png"</action>
+
+
+
+
+
+
+
+
+# 				<action>echo "You pressed No button."</action>
+#				<action>echo "ls" >  "/tmp/gdi/commands"</action>
+#				<action>. "'$PATH1'"/WindowTerminal</action>
+

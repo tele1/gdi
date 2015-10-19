@@ -6,7 +6,7 @@ echo "-----------"
 
 
 #############################################################################################################
-#          WarningAsk
+#          WarningAsk																						#
 #-----------------------------------------------------------------------------------------------------------{
 function FuncWarningAsk() {
 
@@ -39,13 +39,6 @@ export ASK="Are you sure you want $WORK $GRAPHIC ?		"
 	echo "You choose: $WORK , $GRAPHIC"
 
 
-function FuncAction() {
-	NAMELOG="$(date +"%Y-%m-%d %R %S").log"
-echo -e "$WORK , $GRAPHIC `date` \n" > "$NAMELOG"
-apt-get -y $APT $(cat $PATH1/${GRAPHIC}.list) >> "$NAMELOG"
-	}
-export -f FuncAction
-
 
 #---------------------------------------------------------------------------------------------
 	COUNT=$(ls -l /tmp/gdi/ | grep StateBall | grep green_ball | wc -l)
@@ -69,11 +62,39 @@ else
 fi
 #-------------------------------------------------------}
 
+
+########################################
+function FuncAction() {
+	NAMELOG="$(date +"%Y-%m-%d_%R_%S").log"
+
+
+	if [ $(<"$TMPDIR"/action) = 1 ]; then
+		echo -e "apt-get -y $APT \$(cat $PATH1/${GRAPHIC}.list) | tee "$NAMELOG"" > "/tmp/gdi/commands"
+#		echo "exit" >> "/tmp/gdi/commands"
+		$PATH1/WindowTerminal
+		ln -fsn "'$PATH1'/'${BALL}'.png" "/tmp/gdi/StateBall'${GRAPHIC}'.png"
+	else
+		echo "Nothing to do"
+	fi
+
+
+	}
+export -f FuncAction
+########################################
+
+	FuncAction
+
 	}
 export -f FuncWarningAsk
-#----------------------------------------------------------------------------------------------------------}
-#          WarningAsk
+#----------------------------------------------------------------------------------------------------------}																										
+#          WarningAsk																						#
 #############################################################################################################
+
+
+
+
+
+
 
 
 
@@ -128,6 +149,7 @@ export -f FuncButtonsActivity
 
 
 ##########################################################################################################
+																										##
 function funcURLOpen() {
 	if [ -z "$BASH" ]; then local FUNCNAME=funcURLOpen; fi
 
@@ -164,4 +186,5 @@ function funcURLOpen() {
 
 }
 export -f funcURLOpen
+																										##
 ##########################################################################################################

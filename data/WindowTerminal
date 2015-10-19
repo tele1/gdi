@@ -1,0 +1,36 @@
+#! /bin/bash
+
+
+
+
+
+
+
+
+
+
+GTKDIALOG=gtkdialog
+
+export MAIN_DIALOG='
+<window title="Instaling">
+	<vbox>
+		<frame :>
+
+			<terminal>
+				<variable>terminal1</variable>
+				<height>20</height>
+				<width>75</width>
+				<input file>"/tmp/gdi/commands"</input>
+<action function="closewindow">terminal1</action>
+			</terminal>
+
+		</frame>
+		<hbox>
+			<button ok>
+			</button>
+		</hbox>
+	</vbox>
+</window>
+'
+
+gtkdialog --program=MAIN_DIALOG
