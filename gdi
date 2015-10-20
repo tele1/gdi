@@ -60,7 +60,133 @@ export MAIN_DIALOG='
 				</text>
 		</frame>
 		<frame Status>
-<vbox>
+<vbox scrollable="true" width-request="500" width="550" height="400">
+
+		<hbox homogeneous="true">
+			<hbox>
+				<text>
+					<label>AfterStep</label>
+				</text>
+				<pixmap>
+					<input file>'"$TMPDIR"'/StateBallAfterStep.png</input>
+					<variable>BallAfterStep</variable>
+        		</pixmap>
+			</hbox>
+			<button>
+				<label>AfterStep  Install / Uninstall</label>
+				<variable>AfterStepInstall</variable>
+				<input file icon="bottom"></input>
+				<action>echo "You pressed button AfterStep Install"</action>
+				<action>GRAPHIC=AfterStep; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+				<action>FuncWarningAsk</action>
+				<action function="refresh">BallAfterStep</action>
+			</button>
+		</hbox>
+
+		<hbox homogeneous="true">
+			<hbox>
+				<text>
+					<label>Cinnamon</label>
+				</text>
+				<pixmap>
+					<input file>'"$TMPDIR"'/StateBallCinnamon.png</input>
+					<variable>BallCinnamon</variable>
+        		</pixmap>
+			</hbox>
+			<button>
+				<label>Cinnamon  Install / Uninstall</label>
+				<variable>CinnamonInstall</variable>
+				<input file icon="bottom"></input>
+				<action>echo "You pressed button Cinnamon Install"</action>
+				<action>GRAPHIC=Cinnamon; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+				<action>FuncWarningAsk</action>
+				<action function="refresh">BallCinnamon</action>
+			</button>
+		</hbox>
+
+		<hbox homogeneous="true">
+			<hbox>
+				<text>
+					<label>Enlightenment</label>
+				</text>
+				<pixmap>
+					<input file>'"$TMPDIR"'/StateBallEnlightenment.png</input>
+					<variable>BallEnlightenment</variable>
+        		</pixmap>
+			</hbox>
+			<button>
+				<label>Enlightenment  Install / Uninstall</label>
+				<variable>EnlightenmentInstall</variable>
+				<input file icon="bottom"></input>
+				<action>echo "You pressed button Enlightenment Install"</action>
+				<action>GRAPHIC=Enlightenment; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+				<action>FuncWarningAsk</action>
+				<action function="refresh">BallEnlightenment</action>
+			</button>
+		</hbox>
+
+		<hbox homogeneous="true">
+			<hbox>
+				<text>
+					<label>Fluxbox</label>
+				</text>
+				<pixmap>
+					<input file>'"$TMPDIR"'/StateBallFluxbox.png</input>
+					<variable>BallFluxbox</variable>
+        		</pixmap>
+			</hbox>
+			<button>
+				<label>Fluxbox  Install / Uninstall</label>
+				<variable>FluxboxInstall</variable>
+				<input file icon="bottom"></input>
+				<action>echo "You pressed button Fluxbox Install"</action>
+				<action>GRAPHIC=Fluxbox; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+				<action>FuncWarningAsk</action>
+				<action function="refresh">BallFluxbox</action>
+			</button>
+		</hbox>
+
+		<hbox homogeneous="true">
+			<hbox>
+				<text>
+					<label>FVWM</label>
+				</text>
+				<pixmap>
+					<input file>'"$TMPDIR"'/StateBallFVWM.png</input>
+					<variable>BallFVWM</variable>
+        		</pixmap>
+			</hbox>
+			<button>
+				<label>FVWM  Install / Uninstall</label>
+				<variable>FVWMInstall</variable>
+				<input file icon="bottom"></input>
+				<action>echo "You pressed button FVWM Install"</action>
+				<action>GRAPHIC=FVWM; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+				<action>FuncWarningAsk</action>
+				<action function="refresh">BallFVWM</action>
+			</button>
+		</hbox>
+
+		<hbox homogeneous="true">
+			<hbox>
+				<text>
+					<label>IceWM</label>
+				</text>
+				<pixmap>
+					<input file>'"$TMPDIR"'/StateBallIceWM.png</input>
+					<variable>BallIceWM</variable>
+        		</pixmap>
+			</hbox>
+			<button>
+				<label>IceWM  Install / Uninstall</label>
+				<variable>IceWMInstall</variable>
+				<input file icon="bottom"></input>
+				<action>echo "You pressed button IceWM Install"</action>
+				<action>GRAPHIC=IceWM; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+				<action>FuncWarningAsk</action>
+				<action function="refresh">BallIceWM</action>
+			</button>
+		</hbox>
 
 		<hbox homogeneous="true">
 			<hbox>
@@ -81,7 +207,6 @@ export MAIN_DIALOG='
 				<action>FuncWarningAsk</action>
 				<action function="refresh">BallKde</action>
 			</button>
-
 		</hbox>
 
 		<hbox homogeneous="true">
@@ -103,7 +228,6 @@ export MAIN_DIALOG='
 				<action>FuncWarningAsk</action>
 				<action function="refresh">BallLxde</action>
 			</button>
-
 		</hbox>
 
 		<hbox homogeneous="true">
@@ -125,7 +249,69 @@ export MAIN_DIALOG='
 				<action>FuncWarningAsk</action>
 				<action function="refresh">BallMate</action>
 			</button>
+		</hbox>
 
+		<hbox homogeneous="true">
+			<hbox>
+				<text>
+					<label>Openbox  </label>
+				</text>
+				<pixmap>
+					<input file>'"$TMPDIR"'/StateBallOpenbox.png</input>
+					<variable>BallOpenbox</variable>
+        		</pixmap>
+			</hbox>
+			<button>
+				<label>Openbox Install / Uninstall</label>
+				<variable>OpenboxInstall</variable>
+				<input file icon="bottom"></input>
+				<action>echo "You pressed button Openbox Install"</action>
+				<action>GRAPHIC=Openbox; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+				<action>FuncWarningAsk</action>
+				<action function="refresh">BallOpenbox</action>
+			</button>
+		</hbox>
+
+		<hbox homogeneous="true">
+			<hbox>
+				<text>
+					<label>Razor-qt  </label>
+				</text>
+				<pixmap>
+					<input file>'"$TMPDIR"'/StateBallRazorqt.png</input>
+					<variable>BallRazorqt</variable>
+        		</pixmap>
+			</hbox>
+			<button>
+				<label>Razor-qt Install / Uninstall</label>
+				<variable>RazorqtInstall</variable>
+				<input file icon="bottom"></input>
+				<action>echo "You pressed button Razor-qt Install"</action>
+				<action>GRAPHIC=Razorqt; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+				<action>FuncWarningAsk</action>
+				<action function="refresh">BallRazorqt</action>
+			</button>
+		</hbox>
+
+		<hbox homogeneous="true">
+			<hbox>
+				<text>
+					<label>WindowMaker  </label>
+				</text>
+				<pixmap>
+					<input file>'"$TMPDIR"'/StateBallWindowMaker.png</input>
+					<variable>BallWindowMaker</variable>
+        		</pixmap>
+			</hbox>
+			<button>
+				<label>WindowMaker Install / Uninstall</label>
+				<variable>WindowMakerInstall</variable>
+				<input file icon="bottom"></input>
+				<action>echo "You pressed button WindowMaker Install"</action>
+				<action>GRAPHIC=WindowMaker; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+				<action>FuncWarningAsk</action>
+				<action function="refresh">BallWindowMaker</action>
+			</button>
 		</hbox>
 
 		<hbox homogeneous="true">
@@ -147,8 +333,8 @@ export MAIN_DIALOG='
 				<action>FuncWarningAsk</action>
 				<action function="refresh">BallXfce</action>
 			</button>
-
 		</hbox>
+
 </vbox>
 		</frame>
 		<hbox>

@@ -1,3 +1,0 @@
-
-# list files kde
-apt-cache depends task-kde4 | cut -d" " -f4

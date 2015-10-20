@@ -16,6 +16,7 @@ GDI 		- PCLinuxOS desktop environment installation manager.
 
 
 		== IMPORTANT DEPENDENCIES ==
+64bit system
 /etc/X11/dm/Sessions/*
 gdm
 gtkdialog

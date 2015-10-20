@@ -69,8 +69,8 @@ function FuncAction() {
 
 
 	if [ $(<"$TMPDIR"/action) = 1 ]; then
-		echo -e "apt-get -y $APT \$(cat $PATH1/${GRAPHIC}.list) | tee "$NAMELOG"" > "/tmp/gdi/commands"
-		echo "exit" >> "/tmp/gdi/commands"
+		echo -e "apt-get -y $APT \$(cat $PATH1/list/${GRAPHIC}.list) | tee "$NAMELOG"" > "/tmp/gdi/commands"
+	#	echo "exit" >> "/tmp/gdi/commands"
 
 		$PATH1/WindowTerminal
 		ln -fsn "$PATH1/${BALL}.png" "/tmp/gdi/StateBall${GRAPHIC}.png"
@@ -110,6 +110,60 @@ function FuncButtonsActivity() {
 	MSG="Zainstalowane środowisko graficzne:"
 	INSTDE=$(grep -h "Name=" /etc/X11/dm/Sessions/* | cut -c 6-)
 
+# AfterStep
+			test1=$(echo "$INSTDE" | grep "AfterStep")
+			if [[ "$test1" == "AfterStep" ]]; then
+				echo $MSG AfterStep
+				ln -sfn $PATH1/green_ball.png "$TMPDIR"/StateBallAfterStep.png
+			else
+				ln -sfn $PATH1/red_ball.png "$TMPDIR"/StateBallAfterStep.png
+			fi
+
+# Cinnamon
+			test1=$(echo "$INSTDE" | grep -v "Cinnamon2D" | grep "Cinnamon")
+			if [[ "$test1" == "Cinnamon" ]]; then
+				echo $MSG Cinnamon
+				ln -sfn $PATH1/green_ball.png "$TMPDIR"/StateBallCinnamon.png
+			else
+				ln -sfn $PATH1/red_ball.png "$TMPDIR"/StateBallCinnamon.png
+			fi
+
+# Enlightenment
+			test1=$(echo "$INSTDE" | grep "E19")
+			if [[ "$test1" == "E19" ]]; then
+				echo $MSG Enlightenment
+				ln -sfn $PATH1/green_ball.png "$TMPDIR"/StateBallEnlightenment.png
+			else
+				ln -sfn $PATH1/red_ball.png "$TMPDIR"/StateBallEnlightenment.png
+			fi
+
+# Fluxbox
+			test1=$(echo "$INSTDE" | grep "Fluxbox")
+			if [[ "$test1" == "Fluxbox" ]]; then
+				echo $MSG Fluxbox
+				ln -sfn $PATH1/green_ball.png "$TMPDIR"/StateBallFluxbox.png
+			else
+				ln -sfn $PATH1/red_ball.png "$TMPDIR"/StateBallFluxbox.png
+			fi
+
+# FVWM
+			test1=$(echo "$INSTDE" | grep "Fvwm2")
+			if [[ "$test1" == "Fvwm2" ]]; then
+				echo $MSG FVWM
+				ln -sfn $PATH1/green_ball.png "$TMPDIR"/StateBallFVWM.png
+			else
+				ln -sfn $PATH1/red_ball.png "$TMPDIR"/StateBallFVWM.png
+			fi
+
+# IceWM
+			test1=$(echo "$INSTDE" | grep "IceWM")
+			if [[ "$test1" == "IceWM" ]]; then
+				echo $MSG IceWM
+				ln -sfn $PATH1/green_ball.png "$TMPDIR"/StateBallIceWM.png
+			else
+				ln -sfn $PATH1/red_ball.png "$TMPDIR"/StateBallIceWM.png
+			fi
+
 # KDE
 			test1=$(echo "$INSTDE" | grep -v "Openbox-KDE" | grep "KDE")
 			if [[ "$test1" == "KDE" ]]; then
@@ -133,6 +187,30 @@ function FuncButtonsActivity() {
 				ln -sfn $PATH1/green_ball.png "$TMPDIR"/StateBallMate.png
 			else
 				ln -sfn $PATH1/red_ball.png "$TMPDIR"/StateBallMate.png
+			fi
+
+# Openbox
+			if [[ "$INSTDE" == *"Openbox"* ]]; then
+				echo $MSG Openbox
+				ln -sfn $PATH1/green_ball.png "$TMPDIR"/StateBallOpenbox.png
+			else
+				ln -sfn $PATH1/red_ball.png "$TMPDIR"/StateBallOpenbox.png
+			fi
+
+# Razorqt
+			if [[ "$INSTDE" == *"RazorDesktop"* ]]; then
+				echo $MSG Razorqt
+				ln -sfn $PATH1/green_ball.png "$TMPDIR"/StateBallRazorqt.png
+			else
+				ln -sfn $PATH1/red_ball.png "$TMPDIR"/StateBallRazorqt.png
+			fi
+
+# WindowMaker
+			if [[ "$INSTDE" == *"WindowMaker"* ]]; then
+				echo $MSG WindowMaker
+				ln -sfn $PATH1/green_ball.png "$TMPDIR"/StateBallWindowMaker.png
+			else
+				ln -sfn $PATH1/red_ball.png "$TMPDIR"/StateBallWindowMaker.png
 			fi
 
 # XFCE
