@@ -20,7 +20,7 @@ export WindowAbout='
 					<input file>'"$PATH1"'/gdi.png</input>
 				</pixmap>
 				<text use-markup="true" space-expand="false" space-fill="false">
-					<label>"<span fgcolor='"'"'white'"'"'><big><b>'GDI'</b></big></span>"</label>
+					<label>"<span fgcolor='"'"'white'"'"'><big><b>'"Graphical Desktop Installer"'</b></big></span>"</label>
 				</text>
 			</hbox>
 		</eventbox>
@@ -32,7 +32,7 @@ export WindowAbout='
 
 				<text use-markup="true">
 					<label>"
-<b>Graphical desktop environment installation manager.</b>"</label>
+<b>Graphical Desktop Installer.</b>"</label>
 				</text>
 
 				<hbox homogeneous="true" space-expand="false" space-fill="false">
@@ -50,7 +50,7 @@ tele
 				</text>
 
 					<button relief="2">
-						<label>Contact Us: Forum PCLinuxOS PL</label>
+						<label>Contact Us: http://www.pclinuxos.com/forum/ section Polish</label>
 						<action>funcURLOpen "http://www.pclinuxos.com/forum/index.php/board,15.0.html"</action>
 					</button>
 

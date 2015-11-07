@@ -1,0 +1,19 @@
+
+
+		JOBS:
+
+2.	Trzeba stworzyc ikonki kazdego srodowiska, wielkosci kulek, bedą dodane do guzików
+3.	Jest problem bo lista nie wspiera32 bit, poniewaz na listach sa biblioteki lib64, Co z tym zrobić?
+6.	Tworzenie logów trzeba zmienic zeby zawiarały takze info o błedach. (chyba zrobione :) , do sprawdzenia )
+7.	Sprawdzanie nowosci na stronie srodowisk.
+
+
+
+
+
+
+
+
+
+		Tips:
+grep -h "Name=" /etc/X11/dm/Sessions/* | cut -c 6-

@@ -63,13 +63,32 @@ fi
 #-------------------------------------------------------}
 
 
-########################################
-function FuncAction() {
+#------------------------{
+#function FuncAction() {
 	NAMELOG="$(date +"%Y-%m-%d_%R_%S").log"
+
+	#----------------------------------------
+	# Check - if file exist remove and create new folder
+	if [ -d /var/log/gdi ]
+	then
+		rm -fvr /var/log/gdi
+		mkdir /var/log/gdi
+	else
+		mkdir /var/log/gdi
+	fi
+	#----------------------------------------
+
+
+	#----------------------------------------
+	n=5        # Maximum number of files to keep
+	k=$(ls -tr /var/log/gdi/*.log)
+	table1=($k)
+	((${#table1[@]} <= n)) || rm -f -- "${table1[@]:0:${#table1[@]}-n}"  # remove logs
+	#----------------------------------------
 
 
 	if [ $(<"$TMPDIR"/action) = 1 ]; then
-		echo -e "apt-get -y $APT \$(cat $PATH1/list/${GRAPHIC}.list) | tee "$NAMELOG"" > "/tmp/gdi/commands"
+		echo -e "apt-get -y $APT \$(cat $PATH1/list/${GRAPHIC}.list) 2>&1| tee "$NAMELOG"" > "/var/log/gdi"
 		echo "exit" >> "/tmp/gdi/commands"
 
 		$PATH1/WindowTerminal
@@ -82,11 +101,11 @@ function FuncAction() {
 	fi
 
 
-	}
-export -f FuncAction
-########################################
+#	}
+#export -f FuncAction
+#------------------------}
 
-	FuncAction
+#	FuncAction
 
 	}
 export -f FuncWarningAsk

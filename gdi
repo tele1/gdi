@@ -51,357 +51,407 @@ GTKDIALOG=gtkdialog
 export MAIN_DIALOG='
 <window title="GDI">
 	<vbox>
-		<frame Description:>
-				<text>
-					<label>"
-- Red ball means desktop environment is uninstalled.
-- Green ball means desktop environment is installed.
-					"</label>
-				</text>
+
+		<frame>
+			<hbox>
+				<pixmap space-expand ="true">
+					<input file>'"$PATH1"'/gdi.png</input>
+        		</pixmap>
+
+			<vseparator height-request="10"></vseparator>
+
+				<vbox>
+					<hbox>
+						<pixmap>
+							<input file>'"$PATH1"'/green_ball.png</input>
+        				</pixmap>
+						<text>
+							<label>"- Green ball means desktop environment is installed."</label>
+						</text>
+					</hbox>
+					<hbox>
+						<pixmap>
+							<input file>'"$PATH1"'/red_ball.png</input>
+        				</pixmap>
+						<text>
+							<label>"- Red ball means desktop environment is uninstalled."</label>
+						</text>
+					</hbox>
+				</vbox>
+			</hbox>
 		</frame>
-		<frame Status>
-<vbox scrollable="true" width-request="500" width="550" height="400">
 
-		<hbox>
-			<hbox>
-				<text xalign="0">
-					<label>"AfterStep"</label>
-				</text>
-				<pixmap>
-					<input file>'"$TMPDIR"'/StateBallAfterStep.png</input>
-					<variable>BallAfterStep</variable>
-        		</pixmap>
-			</hbox>
-			<button>
-				<label>AfterStep          Install / Uninstall</label>
-				<variable>AfterStepInstall</variable>
-				<input file icon="bottom"></input>
-				<action>echo "You pressed button AfterStep Install"</action>
-				<action>GRAPHIC=AfterStep; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
-				<action>FuncWarningAsk</action>
-				<action function="refresh">BallAfterStep</action>
-			</button>
-			<button>
-				<label>Screenshot</label>
-				<action>echo "You pressed AfterStep screenshot button."</action>
-			</button>
-		</hbox>
+		<frame Status:>
 
-		<hbox>
-			<hbox>
-				<text>
-					<label>Cinnamon</label>
-				</text>
-				<pixmap>
-					<input file>'"$TMPDIR"'/StateBallCinnamon.png</input>
-					<variable>BallCinnamon</variable>
-        		</pixmap>
-			</hbox>
-			<button>
-				<label>Cinnamon         Install / Uninstall</label>
-				<variable>CinnamonInstall</variable>
-				<input file icon="bottom"></input>
-				<action>echo "You pressed button Cinnamon Install"</action>
-				<action>GRAPHIC=Cinnamon; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
-				<action>FuncWarningAsk</action>
-				<action function="refresh">BallCinnamon</action>
-			</button>
-			<button>
-				<label>Screenshot</label>
-				<action>echo "You pressed AfterStep screenshot button."</action>
-			</button>
-		</hbox>
+			<vbox scrollable="true" width-request="450" width="525" height="300">
 
-		<hbox>
-			<hbox>
-				<text>
-					<label>Enlightenment</label>
-				</text>
-				<pixmap>
-					<input file>'"$TMPDIR"'/StateBallEnlightenment.png</input>
-					<variable>BallEnlightenment</variable>
-        		</pixmap>
-			</hbox>
-			<button>
-				<label>Enlightenment  Install / Uninstall</label>
-				<variable>EnlightenmentInstall</variable>
-				<input file icon="bottom"></input>
-				<action>echo "You pressed button Enlightenment Install"</action>
-				<action>GRAPHIC=Enlightenment; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
-				<action>FuncWarningAsk</action>
-				<action function="refresh">BallEnlightenment</action>
-			</button>
-			<button>
-				<label>Screenshot</label>
-				<action>echo "You pressed AfterStep screenshot button."</action>
-			</button>
-		</hbox>
+				<hbox homogeneous="true">
+					<text xalign="0">
+						<label>"AfterStep"</label>
+					</text>
+					<hbox>
+						<pixmap>
+							<input file>'"$TMPDIR"'/StateBallAfterStep.png</input>
+							<variable>BallAfterStep</variable>
+        				</pixmap>
+						<button>
+							<label>Install / Uninstall</label>
+							<variable>AfterStepInstall</variable>
+							<input file icon="bottom"></input>
+							<action>echo "You pressed button AfterStep Install"</action>
+							<action>GRAPHIC=AfterStep; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+							<action>FuncWarningAsk</action>
+							<action function="refresh">BallAfterStep</action>
+						</button>
+						<button>
+							<label>Screenshot</label>
+							<action>echo "You pressed AfterStep screenshot button."</action>
+						</button>
+					</hbox>
+				</hbox>
 
-		<hbox>
-			<hbox>
-				<text>
-					<label>Fluxbox</label>
-				</text>
-				<pixmap>
-					<input file>'"$TMPDIR"'/StateBallFluxbox.png</input>
-					<variable>BallFluxbox</variable>
-        		</pixmap>
-			</hbox>
-			<button>
-				<label>Fluxbox             Install / Uninstall</label>
-				<variable>FluxboxInstall</variable>
-				<input file icon="bottom"></input>
-				<action>echo "You pressed button Fluxbox Install"</action>
-				<action>GRAPHIC=Fluxbox; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
-				<action>FuncWarningAsk</action>
-				<action function="refresh">BallFluxbox</action>
-			</button>
-			<button>
-				<label>Screenshot</label>
-				<action>echo "You pressed AfterStep screenshot button."</action>
-			</button>
-		</hbox>
+			<hseparator width-request="100"></hseparator>
 
-		<hbox>
-			<hbox>
-				<text>
-					<label>FVWM</label>
-				</text>
-				<pixmap>
-					<input file>'"$TMPDIR"'/StateBallFVWM.png</input>
-					<variable>BallFVWM</variable>
-        		</pixmap>
-			</hbox>
-			<button>
-				<label>FVWM               Install / Uninstall</label>
-				<variable>FVWMInstall</variable>
-				<input file icon="bottom"></input>
-				<action>echo "You pressed button FVWM Install"</action>
-				<action>GRAPHIC=FVWM; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
-				<action>FuncWarningAsk</action>
-				<action function="refresh">BallFVWM</action>
-			</button>
-			<button>
-				<label>Screenshot</label>
-				<action>echo "You pressed AfterStep screenshot button."</action>
-			</button>
-		</hbox>
+				<hbox homogeneous="true">
+					<text>
+						<label>Cinnamon</label>
+					</text>
+					<hbox>
+						<pixmap>
+							<input file>'"$TMPDIR"'/StateBallCinnamon.png</input>
+							<variable>BallCinnamon</variable>
+        				</pixmap>
+						<button>
+							<label>Install / Uninstall</label>
+							<variable>CinnamonInstall</variable>
+							<input file icon="bottom"></input>
+							<action>echo "You pressed button Cinnamon Install"</action>
+							<action>GRAPHIC=Cinnamon; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+							<action>FuncWarningAsk</action>
+							<action function="refresh">BallCinnamon</action>
+						</button>
+						<button>
+							<label>Screenshot</label>
+							<action>echo "You pressed AfterStep screenshot button."</action>
+						</button>
+					</hbox>
+				</hbox>
 
-		<hbox>
-			<hbox>
-				<text>
-					<label>IceWM</label>
-				</text>
-				<pixmap>
-					<input file>'"$TMPDIR"'/StateBallIceWM.png</input>
-					<variable>BallIceWM</variable>
-        		</pixmap>
-			</hbox>
-			<button>
-				<label>IceWM               Install / Uninstall</label>
-				<variable>IceWMInstall</variable>
-				<input file icon="bottom"></input>
-				<action>echo "You pressed button IceWM Install"</action>
-				<action>GRAPHIC=IceWM; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
-				<action>FuncWarningAsk</action>
-				<action function="refresh">BallIceWM</action>
-			</button>
-			<button>
-				<label>Screenshot</label>
-				<action>echo "You pressed AfterStep screenshot button."</action>
-			</button>
-		</hbox>
+			<hseparator width-request="100"></hseparator>
 
-		<hbox>
-			<hbox>
-				<text>
-					<label>KDE4  </label>
-				</text>
-				<pixmap>
-					<input file>'"$TMPDIR"'/StateBallKde.png</input>
-					<variable>BallKde</variable>
-        		</pixmap>
-			</hbox>
-			<button>
-				<label>Kde                   Install / Uninstall</label>
-				<variable>KdeInstall</variable>
-				<input file icon="bottom"></input>
-				<action>echo "You pressed button Kde Install"</action>
-				<action>GRAPHIC=Kde; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
-				<action>FuncWarningAsk</action>
-				<action function="refresh">BallKde</action>
-			</button>
-			<button>
-				<label>Screenshot</label>
-				<action>echo "You pressed AfterStep screenshot button."</action>
-			</button>
-		</hbox>
+				<hbox homogeneous="true">
+					<text>
+						<label>Enlightenment</label>
+					</text>
+						<hbox>
+							<pixmap>
+								<input file>'"$TMPDIR"'/StateBallEnlightenment.png</input>
+								<variable>BallEnlightenment</variable>
+        					</pixmap>
+							<button>
+								<label>Install / Uninstall</label>
+								<variable>EnlightenmentInstall</variable>
+								<input file icon="bottom"></input>
+								<action>echo "You pressed button Enlightenment Install"</action>
+								<action>GRAPHIC=Enlightenment; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+								<action>FuncWarningAsk</action>
+								<action function="refresh">BallEnlightenment</action>
+							</button>
+							<button>
+								<label>Screenshot</label>
+								<action>echo "You pressed AfterStep screenshot button."</action>
+							</button>
+						</hbox>
+				</hbox>
 
-		<hbox>
-			<hbox>
-				<text>
-					<label>LXDE  </label>
-				</text>
-				<pixmap>
-					<input file>'"$TMPDIR"'/StateBallLxde.png</input>
-					<variable>BallLxde</variable>
-        		</pixmap>
-			</hbox>
-			<button>
-				<label>Lxde                 Install / Uninstall</label>
-				<variable>LxdeInstall</variable>
-				<input file icon="bottom"></input>
-				<action>echo "You pressed button Lxde Install."</action>
-				<action>GRAPHIC=Lxde; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
-				<action>FuncWarningAsk</action>
-				<action function="refresh">BallLxde</action>
-			</button>
-			<button>
-				<label>Screenshot</label>
-				<action>echo "You pressed AfterStep screenshot button."</action>
-			</button>
-		</hbox>
+			<hseparator width-request="100"></hseparator>
 
-		<hbox>
-			<hbox>
-				<text>
-					<label>MATE  </label>
-				</text>
-				<pixmap>
-					<input file>'"$TMPDIR"'/StateBallMate.png</input>
-					<variable>BallMate</variable>
-        		</pixmap>
-			</hbox>
-			<button>
-				<label>Mate                 Install / Uninstall</label>
-				<variable>MateInstall</variable>
-				<input file icon="bottom"></input>
-				<action>echo "You pressed button Mate Install"</action>
-				<action>GRAPHIC=Mate; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
-				<action>FuncWarningAsk</action>
-				<action function="refresh">BallMate</action>
-			</button>
-			<button>
-				<label>Screenshot</label>
-				<action>echo "You pressed AfterStep screenshot button."</action>
-			</button>
-		</hbox>
+				<hbox homogeneous="true">
+					<text>
+						<label>Fluxbox</label>
+					</text>
+						<hbox>
+							<pixmap>
+								<input file>'"$TMPDIR"'/StateBallFluxbox.png</input>
+								<variable>BallFluxbox</variable>
+        					</pixmap>
+							<button>
+								<label>Install / Uninstall</label>
+								<variable>FluxboxInstall</variable>
+								<input file icon="bottom"></input>
+								<action>echo "You pressed button Fluxbox Install"</action>
+								<action>GRAPHIC=Fluxbox; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+								<action>FuncWarningAsk</action>
+								<action function="refresh">BallFluxbox</action>
+							</button>
+							<button>
+								<label>Screenshot</label>
+								<action>echo "You pressed AfterStep screenshot button."</action>
+							</button>
+						</hbox>
+				</hbox>
 
-		<hbox>
-			<hbox>
-				<text>
-					<label>Openbox  </label>
-				</text>
-				<pixmap>
-					<input file>'"$TMPDIR"'/StateBallOpenbox.png</input>
-					<variable>BallOpenbox</variable>
-        		</pixmap>
-			</hbox>
-			<button>
-				<label>Openbox           Install / Uninstall</label>
-				<variable>OpenboxInstall</variable>
-				<input file icon="bottom"></input>
-				<action>echo "You pressed button Openbox Install"</action>
-				<action>GRAPHIC=Openbox; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
-				<action>FuncWarningAsk</action>
-				<action function="refresh">BallOpenbox</action>
-			</button>
-			<button>
-				<label>Screenshot</label>
-				<action>echo "You pressed AfterStep screenshot button."</action>
-			</button>
-		</hbox>
+			<hseparator width-request="100"></hseparator>
 
-		<hbox>
-			<hbox>
-				<text>
-					<label>Razor-qt  </label>
-				</text>
-				<pixmap>
-					<input file>'"$TMPDIR"'/StateBallRazorqt.png</input>
-					<variable>BallRazorqt</variable>
-        		</pixmap>
-			</hbox>
-			<button>
-				<label>Razor-qt            Install / Uninstall</label>
-				<variable>RazorqtInstall</variable>
-				<input file icon="bottom"></input>
-				<action>echo "You pressed button Razor-qt Install"</action>
-				<action>GRAPHIC=Razorqt; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
-				<action>FuncWarningAsk</action>
-				<action function="refresh">BallRazorqt</action>
-			</button>
-			<button>
-				<label>Screenshot</label>
-				<action>echo "You pressed AfterStep screenshot button."</action>
-			</button>
-		</hbox>
+				<hbox homogeneous="true">
+					<text>
+						<label>FVWM</label>
+					</text>
+						<hbox>
+							<pixmap>
+								<input file>'"$TMPDIR"'/StateBallFVWM.png</input>
+								<variable>BallFVWM</variable>
+        					</pixmap>
+							<button>
+								<label>Install / Uninstall</label>
+								<variable>FVWMInstall</variable>
+								<input file icon="bottom"></input>
+								<action>echo "You pressed button FVWM Install"</action>
+								<action>GRAPHIC=FVWM; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+								<action>FuncWarningAsk</action>
+								<action function="refresh">BallFVWM</action>
+							</button>
+							<button>
+								<label>Screenshot</label>
+								<action>echo "You pressed AfterStep screenshot button."</action>
+							</button>
+						</hbox>
+				</hbox>
 
-		<hbox>
-			<hbox>
-				<text>
-					<label>WindowMaker  </label>
-				</text>
-				<pixmap>
-					<input file>'"$TMPDIR"'/StateBallWindowMaker.png</input>
-					<variable>BallWindowMaker</variable>
-        		</pixmap>
-			</hbox>
-			<button>
-				<label>WindowMaker    Install / Uninstall</label>
-				<variable>WindowMakerInstall</variable>
-				<input file icon="bottom"></input>
-				<action>echo "You pressed button WindowMaker Install"</action>
-				<action>GRAPHIC=WindowMaker; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
-				<action>FuncWarningAsk</action>
-				<action function="refresh">BallWindowMaker</action>
-			</button>
-			<button>
-				<label>Screenshot</label>
-				<action>echo "You pressed AfterStep screenshot button."</action>
-			</button>
-		</hbox>
+			<hseparator width-request="100"></hseparator>
 
-		<hbox>
-			<hbox>
-				<text>
-					<label>XFCE4</label>
-				</text>
-				<pixmap>
-					<input file>'"$TMPDIR"'/StateBallXfce.png</input>
-					<variable>BallXfce</variable>
-        		</pixmap>
-			</hbox>
-			<button>
-				<label>Xfce                  Install / Uninstall</label>
-				<variable>XfceInstall</variable>
-				<input file icon="bottom"></input>
-				<action>echo "You pressed button Xfce Install"</action>
-				<action>GRAPHIC=Xfce; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
-				<action>FuncWarningAsk</action>
-				<action function="refresh">BallXfce</action>
-			</button>
-			<button>
-				<label>Screenshot</label>
-				<action>echo "You pressed AfterStep screenshot button."</action>
-			</button>
-		</hbox>
+				<hbox homogeneous="true">
+					<text>
+						<label>IceWM</label>
+					</text>
+						<hbox>
+							<pixmap>
+								<input file>'"$TMPDIR"'/StateBallIceWM.png</input>
+								<variable>BallIceWM</variable>
+        					</pixmap>
+							<button>
+								<label>Install / Uninstall</label>
+								<variable>IceWMInstall</variable>
+								<input file icon="bottom"></input>
+								<action>echo "You pressed button IceWM Install"</action>
+								<action>GRAPHIC=IceWM; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+								<action>FuncWarningAsk</action>
+								<action function="refresh">BallIceWM</action>
+							</button>
+							<button>
+								<label>Screenshot</label>
+								<action>echo "You pressed AfterStep screenshot button."</action>
+							</button>
+						</hbox>
+				</hbox>
 
-</vbox>
+			<hseparator width-request="100"></hseparator>
+
+				<hbox homogeneous="true">
+					<text>
+						<label>KDE4  </label>
+					</text>
+						<hbox>
+							<pixmap>
+								<input file>'"$TMPDIR"'/StateBallKde.png</input>
+								<variable>BallKde</variable>
+        					</pixmap>
+							<button>
+								<label>Install / Uninstall</label>
+								<variable>KdeInstall</variable>
+								<input file icon="bottom"></input>
+								<action>echo "You pressed button Kde Install"</action>
+								<action>GRAPHIC=Kde; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+								<action>FuncWarningAsk</action>
+								<action function="refresh">BallKde</action>
+							</button>
+							<button>
+								<label>Screenshot</label>
+								<action>echo "You pressed AfterStep screenshot button."</action>
+							</button>
+						</hbox>
+				</hbox>
+
+			<hseparator width-request="100"></hseparator>
+
+				<hbox  homogeneous="true">
+					<text>
+						<label>LXDE  </label>
+					</text>
+						<hbox>
+							<pixmap>
+								<input file>'"$TMPDIR"'/StateBallLxde.png</input>
+								<variable>BallLxde</variable>
+        					</pixmap>
+							<button>
+								<label>Install / Uninstall</label>
+								<variable>LxdeInstall</variable>
+								<input file icon="bottom"></input>
+								<action>echo "You pressed button Lxde Install."</action>
+								<action>GRAPHIC=Lxde; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+								<action>FuncWarningAsk</action>
+								<action function="refresh">BallLxde</action>
+							</button>
+							<button>
+								<label>Screenshot</label>
+								<action>echo "You pressed AfterStep screenshot button."</action>
+							</button>
+						</hbox>
+				</hbox>
+
+			<hseparator width-request="100"></hseparator>
+
+				<hbox  homogeneous="true">
+					<text>
+						<label>MATE  </label>
+					</text>
+						<hbox>
+							<pixmap>
+								<input file>'"$TMPDIR"'/StateBallMate.png</input>
+								<variable>BallMate</variable>
+        					</pixmap>
+							<button>
+								<label>Install / Uninstall</label>
+								<variable>MateInstall</variable>
+								<input file icon="bottom"></input>
+								<action>echo "You pressed button Mate Install"</action>
+								<action>GRAPHIC=Mate; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+								<action>FuncWarningAsk</action>
+								<action function="refresh">BallMate</action>
+							</button>
+							<button>
+								<label>Screenshot</label>
+								<action>echo "You pressed AfterStep screenshot button."</action>
+							</button>
+						</hbox>
+				</hbox>
+
+			<hseparator width-request="100"></hseparator>
+
+				<hbox  homogeneous="true">
+					<text>
+						<label>Openbox  </label>
+					</text>
+						<hbox>
+							<pixmap>
+								<input file>'"$TMPDIR"'/StateBallOpenbox.png</input>
+								<variable>BallOpenbox</variable>
+        					</pixmap>
+							<button>
+								<label>Install / Uninstall</label>
+								<variable>OpenboxInstall</variable>
+								<input file icon="bottom"></input>
+								<action>echo "You pressed button Openbox Install"</action>
+								<action>GRAPHIC=Openbox; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+								<action>FuncWarningAsk</action>
+								<action function="refresh">BallOpenbox</action>
+							</button>
+							<button>
+								<label>Screenshot</label>
+								<action>echo "You pressed AfterStep screenshot button."</action>
+							</button>
+						</hbox>
+				</hbox>
+
+			<hseparator width-request="100"></hseparator>
+
+				<hbox  homogeneous="true">
+					<text>
+						<label>Razor-qt  </label>
+					</text>
+						<hbox>
+							<pixmap>
+								<input file>'"$TMPDIR"'/StateBallRazorqt.png</input>
+								<variable>BallRazorqt</variable>
+        					</pixmap>
+							<button>
+								<label>Install / Uninstall</label>
+								<variable>RazorqtInstall</variable>
+								<input file icon="bottom"></input>
+								<action>echo "You pressed button Razor-qt Install"</action>
+								<action>GRAPHIC=Razorqt; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+								<action>FuncWarningAsk</action>
+								<action function="refresh">BallRazorqt</action>
+							</button>
+							<button>
+								<label>Screenshot</label>
+								<action>echo "You pressed AfterStep screenshot button."</action>
+							</button>
+						</hbox>
+				</hbox>
+
+			<hseparator width-request="100"></hseparator>
+
+				<hbox  homogeneous="true">
+					<text>
+						<label>WindowMaker  </label>
+					</text>
+						<hbox>
+							<pixmap>
+								<input file>'"$TMPDIR"'/StateBallWindowMaker.png</input>
+								<variable>BallWindowMaker</variable>
+        					</pixmap>
+							<button>
+								<label>Install / Uninstall</label>
+								<variable>WindowMakerInstall</variable>
+								<input file icon="bottom"></input>
+								<action>echo "You pressed button WindowMaker Install"</action>
+								<action>GRAPHIC=WindowMaker; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+								<action>FuncWarningAsk</action>
+								<action function="refresh">BallWindowMaker</action>
+							</button>
+							<button>
+								<label>Screenshot</label>
+								<action>echo "You pressed AfterStep screenshot button."</action>
+							</button>
+						</hbox>
+				</hbox>
+
+			<hseparator width-request="100"></hseparator>
+
+				<hbox  homogeneous="true">
+					<text>
+						<label>XFCE4</label>
+					</text>
+						<hbox>
+							<pixmap>
+								<input file>'"$TMPDIR"'/StateBallXfce.png</input>
+								<variable>BallXfce</variable>
+        					</pixmap>
+							<button>
+								<label>Install / Uninstall</label>
+								<variable>XfceInstall</variable>
+								<input file icon="bottom"></input>
+								<action>echo "You pressed button Xfce Install"</action>
+								<action>GRAPHIC=Xfce; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
+								<action>FuncWarningAsk</action>
+								<action function="refresh">BallXfce</action>
+							</button>
+							<button>
+								<label>Screenshot</label>
+							<action>echo "You pressed AfterStep screenshot button."</action>
+							</button>
+						</hbox>
+				</hbox>
+
+			</vbox>
+
 		</frame>
-		<hbox>
-			<button>
-				<label>Exit</label>
-				<input file icon="exit"></input>
-				<action>echo You pressed exit button</action>
-				<action type="exit">Exit by button</action>
-			</button>
-		</hbox>
-			<button>
-				<input file>'"$PATH1"'/test1.png</input>
-				<action>echo "You pressed GDI button"</action>
-				<action>. '"$PATH1"'/WindowAbout</action>
-			</button>
+
+			<hbox>
+				<button space-fill="true">
+					<input file>'"$PATH1"'/test1.png</input>
+					<action>echo "You pressed GDI button"</action>
+					<action>. '"$PATH1"'/WindowAbout</action>
+				</button>
+				<button>
+					<label>Exit</label>
+					<input file icon="exit"></input>
+					<action>echo You pressed exit button</action>
+					<action type="exit">Exit by button</action>
+				</button>
+			</hbox>
+
 	</vbox>
 </window>
 '
@@ -409,8 +459,8 @@ export MAIN_DIALOG='
 gtkdialog -c  --program MAIN_DIALOG
 echo "Program has finished"
 
-
-
+#
+#
 
 
 
