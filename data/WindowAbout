@@ -17,7 +17,7 @@ export WindowAbout='
 				<pixmap space-expand="false" space-fill="false">
 					<width>48</width>
 					<height>48</height>
-					<input file>'"$PATH1"'/gdi.png</input>
+					<input file>'"$PATH1"'/icons/gdi/gdi.png</input>
 				</pixmap>
 				<text use-markup="true" space-expand="false" space-fill="false">
 					<label>"<span fgcolor='"'"'white'"'"'><big><b>'"Graphical Desktop Installer"'</b></big></span>"</label>

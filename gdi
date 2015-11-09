@@ -55,7 +55,7 @@ export MAIN_DIALOG='
 		<frame>
 			<hbox>
 				<pixmap space-expand ="true">
-					<input file>'"$PATH1"'/gdi.png</input>
+					<input file>'"$PATH1"'/icons/gdi/gdi.png</input>
         		</pixmap>
 
 			<vseparator height-request="10"></vseparator>
@@ -63,7 +63,7 @@ export MAIN_DIALOG='
 				<vbox>
 					<hbox>
 						<pixmap>
-							<input file>'"$PATH1"'/green_ball.png</input>
+							<input file>'"$PATH1"'/icons/gdi/green_ball.png</input>
         				</pixmap>
 						<text>
 							<label>"- Green ball means desktop environment is installed."</label>
@@ -71,7 +71,7 @@ export MAIN_DIALOG='
 					</hbox>
 					<hbox>
 						<pixmap>
-							<input file>'"$PATH1"'/red_ball.png</input>
+							<input file>'"$PATH1"'/icons/gdi/red_ball.png</input>
         				</pixmap>
 						<text>
 							<label>"- Red ball means desktop environment is uninstalled."</label>
@@ -105,7 +105,9 @@ export MAIN_DIALOG='
 						</button>
 						<button>
 							<label>Screenshot</label>
-							<action>echo "You pressed AfterStep screenshot button."</action>
+							<action>echo "You pressed screenshot button."</action>
+							<action>SCREENSHOT=afterstep.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+							<action>. '"$PATH1"'/WindowScreenshots</action>
 						</button>
 					</hbox>
 				</hbox>
@@ -132,7 +134,9 @@ export MAIN_DIALOG='
 						</button>
 						<button>
 							<label>Screenshot</label>
-							<action>echo "You pressed AfterStep screenshot button."</action>
+							<action>echo "You pressed screenshot button."</action>
+							<action>SCREENSHOT=cinammon.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+							<action>. '"$PATH1"'/WindowScreenshots</action>
 						</button>
 					</hbox>
 				</hbox>
@@ -159,7 +163,9 @@ export MAIN_DIALOG='
 							</button>
 							<button>
 								<label>Screenshot</label>
-								<action>echo "You pressed AfterStep screenshot button."</action>
+								<action>echo "You pressed screenshot button."</action>
+								<action>SCREENSHOT=e19.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+								<action>. '"$PATH1"'/WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -186,7 +192,9 @@ export MAIN_DIALOG='
 							</button>
 							<button>
 								<label>Screenshot</label>
-								<action>echo "You pressed AfterStep screenshot button."</action>
+								<action>echo "You pressed screenshot button."</action>
+								<action>SCREENSHOT=fluxbox.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+								<action>. '"$PATH1"'/WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -213,7 +221,9 @@ export MAIN_DIALOG='
 							</button>
 							<button>
 								<label>Screenshot</label>
-								<action>echo "You pressed AfterStep screenshot button."</action>
+								<action>echo "You pressed screenshot button."</action>
+								<action>SCREENSHOT=fvwm2.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+								<action>. '"$PATH1"'/WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -240,7 +250,9 @@ export MAIN_DIALOG='
 							</button>
 							<button>
 								<label>Screenshot</label>
-								<action>echo "You pressed AfterStep screenshot button."</action>
+								<action>echo "You pressed screenshot button."</action>
+								<action>SCREENSHOT=icewm.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+								<action>. '"$PATH1"'/WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -267,7 +279,9 @@ export MAIN_DIALOG='
 							</button>
 							<button>
 								<label>Screenshot</label>
-								<action>echo "You pressed AfterStep screenshot button."</action>
+								<action>echo "You pressed screenshot button."</action>
+								<action>SCREENSHOT=kde.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+								<action>. '"$PATH1"'/WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -294,7 +308,9 @@ export MAIN_DIALOG='
 							</button>
 							<button>
 								<label>Screenshot</label>
-								<action>echo "You pressed AfterStep screenshot button."</action>
+								<action>echo "You pressed screenshot button."</action>
+								<action>SCREENSHOT=lxde.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+								<action>. '"$PATH1"'/WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -321,7 +337,9 @@ export MAIN_DIALOG='
 							</button>
 							<button>
 								<label>Screenshot</label>
-								<action>echo "You pressed AfterStep screenshot button."</action>
+								<action>echo "You pressed screenshot button."</action>
+								<action>SCREENSHOT=mate.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+								<action>. '"$PATH1"'/WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -348,7 +366,9 @@ export MAIN_DIALOG='
 							</button>
 							<button>
 								<label>Screenshot</label>
-								<action>echo "You pressed AfterStep screenshot button."</action>
+								<action>echo "You pressed screenshot button."</action>
+								<action>SCREENSHOT=openbox.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+								<action>. '"$PATH1"'/WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -375,7 +395,9 @@ export MAIN_DIALOG='
 							</button>
 							<button>
 								<label>Screenshot</label>
-								<action>echo "You pressed AfterStep screenshot button."</action>
+								<action>echo "You pressed screenshot button."</action>
+							<action>SCREENSHOT=razor-qt.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+							<action>. '"$PATH1"'/WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -402,7 +424,9 @@ export MAIN_DIALOG='
 							</button>
 							<button>
 								<label>Screenshot</label>
-								<action>echo "You pressed AfterStep screenshot button."</action>
+								<action>echo "You pressed screenshot button."</action>
+								<action>SCREENSHOT=.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+								<action>. '"$PATH1"'/WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -429,7 +453,9 @@ export MAIN_DIALOG='
 							</button>
 							<button>
 								<label>Screenshot</label>
-							<action>echo "You pressed AfterStep screenshot button."</action>
+								<action>echo "You pressed screenshot button."</action>
+								<action>SCREENSHOT=xfce.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+								<action>. '"$PATH1"'/WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -440,7 +466,7 @@ export MAIN_DIALOG='
 
 			<hbox>
 				<button space-fill="true">
-					<input file>'"$PATH1"'/test1.png</input>
+					<input file>'"$PATH1"'/icons/gdi/test1.png</input>
 					<action>echo "You pressed GDI button"</action>
 					<action>. '"$PATH1"'/WindowAbout</action>
 				</button>

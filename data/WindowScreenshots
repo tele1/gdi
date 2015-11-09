@@ -1,0 +1,43 @@
+#!/bin/sh
+
+
+#---------------------------{
+# place gdi files
+#if [ "`pwd`" = "/usr/bin" ]; then
+#	export	PATH1="/usr/share/gdi"
+#else
+#	export	PATH1="`pwd`/data"
+#fi
+#---------------------------}
+
+
+
+
+
+SCREEN=$(cat /tmp/gdi/screenshot)
+echo ""$PATH1"/screenshots/"$SCREEN""
+
+
+
+
+export WindowAbout='
+
+<vbox>
+
+	<frame>
+		<pixmap>
+			<input file>"'"$PATH1"'/screenshots/'"$SCREEN"'"</input>
+		</pixmap>
+	</frame>
+
+	<hbox  homogeneous="true">
+<text>
+    <label>"'"$SCREEN"'"</label>
+</text>
+		<button ok></button>
+	</hbox>
+</vbox>
+
+
+'
+gtkdialog -c  --program WindowAbout
