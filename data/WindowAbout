@@ -20,7 +20,7 @@ export WindowAbout='
 					<input file>'"$PATH1"'/icons/gdi/gdi.png</input>
 				</pixmap>
 				<text use-markup="true" space-expand="false" space-fill="false">
-					<label>"<span fgcolor='"'"'white'"'"'><big><b>'"Graphical Desktop Installer"'</b></big></span>"</label>
+					<label>"<span fgcolor='"'"'black'"'"'><big><b>'"Graphical Desktop Installer"'</b></big></span>"</label>
 				</text>
 			</hbox>
 		</eventbox>
