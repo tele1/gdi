@@ -6,6 +6,7 @@
 3.	Jest problem bo lista nie wspiera32 bit, poniewaz na listach sa biblioteki lib64, Co z tym zrobić?
 6.	Tworzenie logów trzeba zmienic zeby zawiarały takze info o błedach. (chyba zrobione :) , do sprawdzenia )
 7.	Sprawdzanie nowosci na stronie srodowisk.
+8.	Zamiec zieloną kulke po instalacji na sprawdzenie czy faktycznie zainstalowalo.
 
 
 

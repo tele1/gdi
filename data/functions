@@ -82,16 +82,22 @@ fi
 	# Keep only last "n" logs and remove other. 
 	n=5        # Maximum number of files to keep
 	k=$(ls -tr /var/log/gdi/*.log)
-	table1=($k)
-	((${#table1[@]} <= n)) || rm -f -- "${table1[@]:0:${#table1[@]}-n}"  # remove logs
+	k2=$(echo $k | wc -l)
+	if [ "$k2" -gt 0 ] ; then
+		table1=($k)
+		((${#table1[@]} <= n)) || rm -f -- "${table1[@]:0:${#table1[@]}-n}"  # remove logs
+	fi
 	#----------------------------------------
 
 
 	if [ $(<"$TMPDIR"/action) = 1 ]; then
-		echo -e "apt-get -y $APT \$(cat $PATH1/list/${GRAPHIC}.list) 2>&1| tee "$NAMELOG"" > "/var/log/gdi"
+		# Before run terminal all comands should be saved to /tmp/gdi/commands
+		echo -e "apt-get -y $APT \$(cat $PATH1/list/${GRAPHIC}.list) 2>&1 | tee /var/log/gdi/"$NAMELOG""   > "/tmp/gdi/commands"
 		echo "exit" >> "/tmp/gdi/commands"
 
+		# Terminal running and commands from /tmp/gdi/commands also.
 		$PATH1/WindowTerminal
+
 		ln -fsn "$PATH1/icons/gdi/${BALL}.png" "/tmp/gdi/StateBall${GRAPHIC}.png"
 		echo "$PATH1/icons/gdi/${BALL}.png /tmp/gdi/StateBall${GRAPHIC}.png"
 		$PATH1/WarningReady
