@@ -2,6 +2,59 @@
 
 
 
+funcList1() {
+
+# count lines
+CountLines=$(cat `pwd`/data/list/${GRAPHIC}.list | wc -l)
+
+funcList2() {
+	for i in `seq 1 $CountLines`
+	do
+			#line from lista_elf
+			ab=$(awk 'NR=='$i `pwd`/data/list/${GRAPHIC}.list)
+
+			echo '	<checkbox>
+						<label>'$ab'</label>
+						<default>true</default>
+						<action>echo Odznaczyłeś '$ab' , zapisz do pliku i potem wykorzystaj grep albo usuń z tablicy pakietów.</action>
+					</checkbox>'
+	done
+}
+
+#if echo "$WORK" | grep -q "Uninstall"; then
+if [[ "$WORK" == "Uninstall" ]]; then
+
+
+echo '			<text>
+					<label>You can check which packages will removed</label>
+				</text>
+				<text>
+					<label>and you can unmark, if you need have:</label>
+				</text>
+
+			<expander expanded="false" use-underline="true">
+				<vbox scrollable="true" width-request="220" width="250" height="300">
+
+
+				'"`funcList2`"'
+				</vbox>
+			<label>Click to show list:</label>
+			</expander>
+'
+
+
+elif [[ "$WORK" == "Install" ]]; then
+
+			echo '<hseparator width-request="100"></hseparator>'
+else
+		echo '<text>
+			<label>Error funcList</label>
+		</text>'
+
+fi
+
+}
+
 
 
 
@@ -23,22 +76,17 @@ export WarningAsk='
 						<label>'"$ASK"'</label>
 					</text>
 				</vbox>
-
-
 		</hbox>
+
+				'"`funcList1`"'
 
 	</frame>
 
 		<hbox>
-
 			<button yes>
 				<variable>warningaskwindow</variable>
 				<action>echo "You pressed Yes button."</action>
-
-
-
 				<action>echo "1" > '"$TMPDIR"'/action</action>
-
 				<action type="closewindow">"warningaskwindow"</action>
 			</button>
 
@@ -47,28 +95,14 @@ export WarningAsk='
 				<action>echo "0" > '"$TMPDIR"'/action</action>
 				<action type="closewindow">"warningaskwindow"</action>
 			</button>
-
 		</hbox>
+
 </vbox> 
 </window>  
 '
 	gtkdialog -c  --program WarningAsk
 
-#
 
 
 
-#				<action>FuncAction</action>
-#				<action>ln -fsn "'$PATH1'/'${BALL}'.png" "/tmp/gdi/StateBall'${GRAPHIC}'.png"</action>
-
-
-
-
-
-
-
-
-# 				<action>echo "You pressed No button."</action>
-#				<action>echo "ls" >  "/tmp/gdi/commands"</action>
-#				<action>. "'$PATH1'"/WindowTerminal</action>
 

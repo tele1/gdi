@@ -4,10 +4,10 @@ GDI 		- PCLinuxOS desktop environment installation manager.
 			- Designed for PCLinuxOS system.
 
 #       Name:     GDI   - Graphical Desktop Installer
-#       Version:  15
+#       Version:  16
 #       License:  GNU GPL v3
 #                 https://gnu.org/licenses/gpl.html
-#		Date:     9.11.2015
+#		Date:     29.11.2015
 
 
 #======================================================
@@ -36,6 +36,19 @@ awk
 
 		./gdi
 
+
+
+========= LOGS: =========
+- Logs are created in 
+  /var/log/gdi
+- Only about last 5 logs are saved, other are removed.
+  You can change it in "functions" file. 
+  (  line 85:     # Maximum number of files to keep  )
+
+
+========= WARNINGS: =========
+- This software is dependent on repository,
+  this mean, make not work if repository was changed.
 
 
 

@@ -377,35 +377,6 @@ export MAIN_DIALOG='
 
 				<hbox  homogeneous="true">
 					<text>
-						<label>Razor-qt  </label>
-					</text>
-						<hbox>
-							<pixmap>
-								<input file>'"$TMPDIR"'/StateBallRazorqt.png</input>
-								<variable>BallRazorqt</variable>
-        					</pixmap>
-							<button>
-								<label>Install / Uninstall</label>
-								<variable>RazorqtInstall</variable>
-								<input file icon="bottom"></input>
-								<action>echo "You pressed button Razor-qt Install"</action>
-								<action>GRAPHIC=Razorqt; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
-								<action>FuncWarningAsk</action>
-								<action function="refresh">BallRazorqt</action>
-							</button>
-							<button>
-								<label>Screenshot</label>
-								<action>echo "You pressed screenshot button."</action>
-							<action>SCREENSHOT=razor-qt.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
-							<action>. '"$PATH1"'/WindowScreenshots</action>
-							</button>
-						</hbox>
-				</hbox>
-
-			<hseparator width-request="100"></hseparator>
-
-				<hbox  homogeneous="true">
-					<text>
 						<label>WindowMaker  </label>
 					</text>
 						<hbox>
@@ -425,7 +396,7 @@ export MAIN_DIALOG='
 							<button>
 								<label>Screenshot</label>
 								<action>echo "You pressed screenshot button."</action>
-								<action>SCREENSHOT=.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+								<action>SCREENSHOT=windowmaker.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 								<action>. '"$PATH1"'/WindowScreenshots</action>
 							</button>
 						</hbox>
