@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 
 
@@ -12,7 +12,7 @@
 GTKDIALOG=gtkdialog
 
 export MAIN_DIALOG='
-<window title="Instaling">
+<window title="Close Synaptic and wait.">
 	<vbox>
 		<frame :>
 

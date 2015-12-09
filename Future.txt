@@ -2,19 +2,11 @@
 
 		JOBS:
 
-2.	Trzeba stworzyc ikonki kazdego srodowiska, wielkosci kulek, bedą dodane do guzików
-3.	Jest problem bo lista nie wspiera32 bit, poniewaz na listach sa biblioteki lib64, Co z tym zrobić?
-6.	Tworzenie logów trzeba zmienic zeby zawiarały takze info o błedach. (chyba zrobione :) , do sprawdzenia )
-7.	Sprawdzanie nowosci na stronie srodowisk.
-8.	Zamiec zieloną kulke po instalacji na sprawdzenie czy faktycznie zainstalowalo.
+1. Icons with picture.
+2. Link to web page desktop enviroment.
+3. Add multolanguage support.
+4. Improve destktop enviroments lists.
+5. Add warning when will uninstalled packages which are used from other desktop enviroments and or uncheck.
 
 
 
-
-
-
-
-
-
-		Tips:
-grep -h "Name=" /etc/X11/dm/Sessions/* | cut -c 6-

@@ -92,26 +92,28 @@ fi
 
 	if [ $(<"$TMPDIR"/action) = 1 ]; then
 		# Before run terminal all comands should be saved to /tmp/gdi/commands
-		echo -e "apt-get -y $APT \$(cat $PATH1/list/${GRAPHIC}.list) 2>&1 | tee /var/log/gdi/"$NAMELOG""   > "/tmp/gdi/commands"
+		# "packages.list" file is created in "WarningAsk" window.
+		echo -e "apt-get -y $APT \$(cat /tmp/gdi/packages.list) 2>&1 | tee /var/log/gdi/"$NAMELOG""   > "/tmp/gdi/commands"
 		echo "exit" >> "/tmp/gdi/commands"
 
-		# Terminal running and commands from /tmp/gdi/commands also.
+		# Terminal running and commands from /tmp/gdi/commands inside this terminal.
 		$PATH1/WindowTerminal
 
-		ln -fsn "$PATH1/icons/gdi/${BALL}.png" "/tmp/gdi/StateBall${GRAPHIC}.png"
+        #--------------------------------------------------------------------
+		# Refresh icon
+		#   Function will update icon in "/tmp/gdi/" folder
+		FuncButtonsActivity
+
+		#   Debug line
 		echo "$PATH1/icons/gdi/${BALL}.png /tmp/gdi/StateBall${GRAPHIC}.png"
+		#   Window
 		$PATH1/WarningReady
-		echo "End FuncAction"
+		echo "End FuncWarningAsk"
+        #--------------------------------------------------------------------
 	else
 		echo "Nothing to do"
 	fi
 
-
-#	}
-#export -f FuncAction
-#------------------------}
-
-#	FuncAction
 
 	}
 export -f FuncWarningAsk

@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 
 
@@ -6,6 +6,18 @@ funcList1() {
 
 # count lines
 CountLines=$(cat `pwd`/data/list/${GRAPHIC}.list | wc -l)
+arch=`arch`
+
+
+if [[ "$arch" == "x86_64" ]]; then
+	# 64 bit system
+	cat `pwd`/data/list/${GRAPHIC}.list > /tmp/gdi/packages.list
+else
+	# for example 32 bit system
+	cat `pwd`/data/list/${GRAPHIC}.list | sed -i 's/lib64/lib/g' > /tmp/gdi/packages.list
+fi
+
+
 
 funcList2() {
 	for i in `seq 1 $CountLines`
@@ -16,7 +28,11 @@ funcList2() {
 			echo '	<checkbox>
 						<label>'$ab'</label>
 						<default>true</default>
-						<action>echo Odznaczyłeś '$ab' , zapisz do pliku i potem wykorzystaj grep albo usuń z tablicy pakietów.</action>
+						<action>echo Odznaczyłeś '$ab' .</action>
+						<action>if true echo "'$ab'" >> /tmp/gdi/packages.list</action> 
+						<action>if false echo "$(cat /tmp/gdi/packages.list | grep -v "'$ab'")" > /tmp/gdi/packages.list</action> 
+						<action>echo "======="</action> 
+						<action>cat /tmp/gdi/packages.list</action> 
 					</checkbox>'
 	done
 }
@@ -93,7 +109,9 @@ export WarningAsk='
 
 			<button no>
 				<action>echo "0" > '"$TMPDIR"'/action</action>
+				<action>echo "tablica: ${tablica2[*]}"</action>
 				<action type="closewindow">"warningaskwindow"</action>
+
 			</button>
 		</hbox>
 
