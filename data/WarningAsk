@@ -3,27 +3,11 @@
 
 
 funcList1() {
-
-# count lines
-CountLines=$(cat `pwd`/data/list/${GRAPHIC}.list | wc -l)
-arch=`arch`
-
-
-# For 32 bit and 64 bit Support :-)
-if [[ "$arch" == "x86_64" ]]; then
-	# 64 bit system
-	cat `pwd`/data/list/${GRAPHIC}.list > /tmp/gdi/packages.list
-else
-	# for example 32 bit system
-	cat `pwd`/data/list/${GRAPHIC}.list | sed 's/lib64/lib/' > /tmp/gdi/packages.list
-fi
-
-
-
-funcList2() {
-	for i in `seq 1 $CountLines`
-	do
-			#line from lista_elf
+	#-------------------------------------------------------------
+	funcList2() {
+		for i in `seq 1 $CountLines`
+		do
+			#line from `pwd`/data/list/${GRAPHIC}.list
 			ab=$(awk 'NR=='$i `pwd`/data/list/${GRAPHIC}.list)
 
 			echo '	<checkbox>
@@ -35,14 +19,15 @@ funcList2() {
 						<action>echo "======="</action> 
 						<action>cat /tmp/gdi/packages.list</action> 
 					</checkbox>'
-	done
-}
+		done
+	}
+	#-------------------------------------------------------------
 
-#if echo "$WORK" | grep -q "Uninstall"; then
-if [[ "$WORK" == "Uninstall" ]]; then
+	#------------------------------------------------------------------------------
+	#if echo "$WORK" | grep -q "Uninstall"; then
+	if [[ "$WORK" == "Uninstall" ]]; then
 
-
-echo '			<text>
+	echo '		<text>
 					<label>You can check which packages will removed</label>
 				</text>
 				<text>
@@ -55,21 +40,17 @@ echo '			<text>
 
 				'"`funcList2`"'
 				</vbox>
-			<label>Click to show list:</label>
+					<label>Click to show list:</label>
 			</expander>
 '
-
-
-elif [[ "$WORK" == "Install" ]]; then
-
+	elif [[ "$WORK" == "Install" ]]; then
 			echo '<hseparator width-request="100"></hseparator>'
-else
+	else
 		echo '<text>
-			<label>Error funcList</label>
-		</text>'
-
-fi
-
+				<label>Error funcList</label>
+			  </text>'
+	fi
+	#------------------------------------------------------------------------------
 }
 
 
@@ -110,9 +91,8 @@ export WarningAsk='
 
 			<button no>
 				<action>echo "0" > '"$TMPDIR"'/action</action>
-				<action>echo "tablica: ${tablica2[*]}"</action>
+				<action>echo "You pressed No button."</action>
 				<action type="closewindow">"warningaskwindow"</action>
-
 			</button>
 		</hbox>
 

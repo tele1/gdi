@@ -11,63 +11,30 @@ echo "-----------"
 function FuncWarningAsk() {
 
 
+	# desktop_enviroment=KDE,LXDE ...
+	export GRAPHIC=$(awk 'NR==1'  /tmp/gdi/action)
 
 
-# srodowisko=KDE,LXDE ...
-export GRAPHIC=$(awk 'NR==1'  /tmp/gdi/action)
+	#---------------------{
+	# color ball
+	LINK1=$(file /tmp/gdi/StateBall${GRAPHIC}.png)
 
-
-#-----------------------------------------------------------------------{
-
-LINK1=$(file /tmp/gdi/StateBall${GRAPHIC}.png)
-
-if echo $LINK1 | grep -q "red_ball"; then
-	export	BALL="green_ball"
-	export	WORK="Install"
-	export  APT="install"
-elif echo $LINK1 | grep -q "green_ball"; then
-	export	BALL="red_ball"
-	export	WORK="Uninstall"
-	export  APT="remove"
-else
-	echo "Error: Not found link ball in /tmp/gdi/StateBall${GRAPHIC}.png  "
-fi
-
-#-----------------------------------------------------------------------}
-
-export ASK="Are you sure you want $WORK $GRAPHIC ?		"
-	echo "You choose: $WORK , $GRAPHIC"
-
-
-
-#---------------------------------------------------------------------------------------------
-	COUNT=$(ls -l /tmp/gdi/ | grep StateBall | grep green_ball | wc -l)
-	echo "Installed desktop enviroments: $COUNT"
-#---------------------------------------------------------------------------------------------
-
-
-
-#-------------------------------------------------------{
-# if is less than or equal to 1
-if [[ "$COUNT" -le "1" ]]; then
-
-	if [ "$WORK" = "Uninstall" ]; then
-		$PATH1/WarningBarrier
+	# variables
+	if echo $LINK1 | grep -q "red_ball"; then
+		export	BALL="green_ball"
+		export	WORK="Install"
+		export  APT="install"
+	elif echo $LINK1 | grep -q "green_ball"; then
+		export	BALL="red_ball"
+		export	WORK="Uninstall"
+		export  APT="remove"
 	else
-		$PATH1/WarningAsk	
+		echo "Error: Not found link ball in /tmp/gdi/StateBall${GRAPHIC}.png  "
 	fi
-
-else
-		$PATH1/WarningAsk
-fi
-#-------------------------------------------------------}
+	#---------------------}
 
 
-#------------------------{
-#function FuncAction() {
-	NAMELOG="$(date +"%Y-%m-%d_%R_%S").log"
-
-	#----------------------------------------
+	#---------------------
 	# Create folder gdi for logs.
 	if [ -d /var/log/gdi ]
 	then
@@ -75,8 +42,54 @@ fi
 	else
 		mkdir /var/log/gdi
 	fi
-	#----------------------------------------
+	#---------------------
 
+	#---------------------------------------------------------------------------------------------
+	COUNT=$(ls -l /tmp/gdi/ | grep StateBall | grep green_ball | wc -l)
+	echo "Installed desktop enviroments: $COUNT"
+	#---------------------------------------------------------------------------------------------
+
+	#-------------------------------------------------------{
+	# "arch" command show which system you have (32bit or 64bit)
+	arch=`arch`
+
+	# For 32 bit and 64 bit Support :-)
+	if [[ "$arch" == "x86_64" ]]; then
+		# 64 bit system
+		cat `pwd`/data/list/${GRAPHIC}.list > /tmp/gdi/packages.list
+	else
+		# for example 32 bit system
+		cat `pwd`/data/list/${GRAPHIC}.list | sed 's/lib64/lib/' > /tmp/gdi/packages.list
+	fi
+	#-------------------------------------------------------}
+
+	#-------------------------------------------------------{
+
+	# /tmp/gdi/packages.1.list
+
+	# Lista srodowisk zainstalowanych
+
+
+
+	# question inside "WarningAsk" window.
+	export ASK="Are you sure you want $WORK $GRAPHIC ?		"
+		echo "You choose: $WORK , $GRAPHIC"
+
+	# count lines for "WarningAsk" window.
+	export CountLines=$(cat `pwd`/data/list/${GRAPHIC}.list | wc -l)
+
+	# if is less than or equal to 1
+	if [[ "$COUNT" -le "1" ]]; then
+		if [ "$WORK" = "Uninstall" ]; then
+			# This warning will protects you from deleting the last environment
+			$PATH1/WarningBarrier
+		else
+			$PATH1/WarningAsk	
+		fi
+	else
+			$PATH1/WarningAsk
+	fi
+	#-------------------------------------------------------}
 
 	#----------------------------------------
 	# Keep only last "n" logs and remove other. 
@@ -89,17 +102,20 @@ fi
 	fi
 	#----------------------------------------
 
+	#------------------------------------------------------------------------
+	# the log file name .log will have date and hour
+	NAMELOG="$(date +"%Y-%m-%d_%R_%S").log"
 
+	# Window with terminal will install and uninstall packages.
 	if [ $(<"$TMPDIR"/action) = 1 ]; then
 		# Before run terminal all comands should be saved to /tmp/gdi/commands
-		# "packages.list" file is created in "WarningAsk" window.
+		# "packages.list" file is created before execute "WarningAsk"
 		echo -e "apt-get -y $APT \$(cat /tmp/gdi/packages.list) 2>&1 | tee /var/log/gdi/"$NAMELOG""   > "/tmp/gdi/commands"
 		echo "exit" >> "/tmp/gdi/commands"
 
 		# Terminal running and commands from /tmp/gdi/commands inside this terminal.
 		$PATH1/WindowTerminal
 
-        #--------------------------------------------------------------------
 		# Refresh icon
 		#   Function will update icon in "/tmp/gdi/" folder
 		FuncButtonsActivity
@@ -109,23 +125,16 @@ fi
 		#   Window
 		$PATH1/WarningReady
 		echo "End FuncWarningAsk"
-        #--------------------------------------------------------------------
 	else
 		echo "Nothing to do"
 	fi
-
+	#------------------------------------------------------------------------
 
 	}
 export -f FuncWarningAsk
 #----------------------------------------------------------------------------------------------------------}																										
 #          WarningAsk																						#
 #############################################################################################################
-
-
-
-
-
-
 
 
 
