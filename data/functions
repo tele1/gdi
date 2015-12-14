@@ -65,9 +65,14 @@ function FuncWarningAsk() {
 
 	#-------------------------------------------------------{
 
-	# /tmp/gdi/packages.1.list
+	# List installed desktops enviroments
+	 ls -l /tmp/gdi/ | grep StateBall | grep green_ball| cut -d" " -f 10 | sed 's/StateBall//' | sed 's/.png//' > /tmp/gdi/installed.desktops.list
 
-	# Lista srodowisk zainstalowanych
+	# List packages from installed desktops enviroments
+
+
+	# usuwanie openbox , dzieki temu uzyskamy paiety do usuniecia
+	# $ comm  -13 Lxde.list Openbox.list
 
 
 

@@ -40,10 +40,20 @@ export TMPDIR=/tmp/"$(basename $0)"
 FuncButtonsActivity
 
 
-
-
-
-
+funcRefreshAllBall() {
+	echo '	<action function="refresh">BallAfterStep</action>
+		<action function="refresh">BallCinnamon</action>
+		<action function="refresh">BallEnlightenment</action>
+		<action function="refresh">BallFluxbox</action>
+		<action function="refresh">BallFVWM</action>
+		<action function="refresh">BallIceWM</action>
+		<action function="refresh">BallKde</action>
+		<action function="refresh">BallLxde</action>
+		<action function="refresh">BallMate</action>
+		<action function="refresh">BallOpenbox</action>
+		<action function="refresh">BallWindowMaker</action>
+		<action function="refresh">BallXfce</action>	'
+}
 
 
 GTKDIALOG=gtkdialog
@@ -101,7 +111,7 @@ export MAIN_DIALOG='
 							<action>echo "You pressed button AfterStep Install"</action>
 							<action>GRAPHIC=AfterStep; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
 							<action>FuncWarningAsk</action>
-							<action function="refresh">BallAfterStep</action>
+							'"`funcRefreshAllBall`"'
 						</button>
 						<button>
 							<label>Screenshot</label>
@@ -130,7 +140,7 @@ export MAIN_DIALOG='
 							<action>echo "You pressed button Cinnamon Install"</action>
 							<action>GRAPHIC=Cinnamon; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
 							<action>FuncWarningAsk</action>
-							<action function="refresh">BallCinnamon</action>
+							'"`funcRefreshAllBall`"'
 						</button>
 						<button>
 							<label>Screenshot</label>
@@ -159,7 +169,7 @@ export MAIN_DIALOG='
 								<action>echo "You pressed button Enlightenment Install"</action>
 								<action>GRAPHIC=Enlightenment; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
 								<action>FuncWarningAsk</action>
-								<action function="refresh">BallEnlightenment</action>
+								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
 								<label>Screenshot</label>
@@ -188,7 +198,7 @@ export MAIN_DIALOG='
 								<action>echo "You pressed button Fluxbox Install"</action>
 								<action>GRAPHIC=Fluxbox; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
 								<action>FuncWarningAsk</action>
-								<action function="refresh">BallFluxbox</action>
+								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
 								<label>Screenshot</label>
@@ -217,7 +227,7 @@ export MAIN_DIALOG='
 								<action>echo "You pressed button FVWM Install"</action>
 								<action>GRAPHIC=FVWM; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
 								<action>FuncWarningAsk</action>
-								<action function="refresh">BallFVWM</action>
+								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
 								<label>Screenshot</label>
@@ -246,7 +256,7 @@ export MAIN_DIALOG='
 								<action>echo "You pressed button IceWM Install"</action>
 								<action>GRAPHIC=IceWM; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
 								<action>FuncWarningAsk</action>
-								<action function="refresh">BallIceWM</action>
+								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
 								<label>Screenshot</label>
@@ -275,7 +285,7 @@ export MAIN_DIALOG='
 								<action>echo "You pressed button Kde Install"</action>
 								<action>GRAPHIC=Kde; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
 								<action>FuncWarningAsk</action>
-								<action function="refresh">BallKde</action>
+								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
 								<label>Screenshot</label>
@@ -304,7 +314,7 @@ export MAIN_DIALOG='
 								<action>echo "You pressed button Lxde Install."</action>
 								<action>GRAPHIC=Lxde; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
 								<action>FuncWarningAsk</action>
-								<action function="refresh">BallLxde</action>
+							'"`funcRefreshAllBall`"'
 							</button>
 							<button>
 								<label>Screenshot</label>
@@ -333,7 +343,7 @@ export MAIN_DIALOG='
 								<action>echo "You pressed button Mate Install"</action>
 								<action>GRAPHIC=Mate; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
 								<action>FuncWarningAsk</action>
-								<action function="refresh">BallMate</action>
+								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
 								<label>Screenshot</label>
@@ -362,7 +372,7 @@ export MAIN_DIALOG='
 								<action>echo "You pressed button Openbox Install"</action>
 								<action>GRAPHIC=Openbox; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
 								<action>FuncWarningAsk</action>
-								<action function="refresh">BallOpenbox</action>
+								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
 								<label>Screenshot</label>
@@ -391,7 +401,7 @@ export MAIN_DIALOG='
 								<action>echo "You pressed button WindowMaker Install"</action>
 								<action>GRAPHIC=WindowMaker; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
 								<action>FuncWarningAsk</action>
-								<action function="refresh">BallWindowMaker</action>
+								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
 								<label>Screenshot</label>
@@ -420,7 +430,7 @@ export MAIN_DIALOG='
 								<action>echo "You pressed button Xfce Install"</action>
 								<action>GRAPHIC=Xfce; echo -e "$GRAPHIC" > /tmp/gdi/action</action>
 								<action>FuncWarningAsk</action>
-								<action function="refresh">BallXfce</action>
+								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
 								<label>Screenshot</label>

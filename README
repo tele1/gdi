@@ -4,10 +4,10 @@ GDI 		- PCLinuxOS desktop environment installation manager.
 			- Designed for PCLinuxOS system.
 
 #       Name:     GDI   - Graphical Desktop Installer
-#       Version:  18
+#       Version:  19
 #       License:  GNU GPL v3
 #                 https://gnu.org/licenses/gpl.html
-#		Date:     12.12.2015
+#		Date:     14.12.2015
 
 
 #======================================================
@@ -24,6 +24,10 @@ bash
 sh
 awk
 sed
+grep
+ls
+cut
+apt
 
 
 
@@ -49,7 +53,8 @@ sed
 ========= WARNINGS: =========
 - This software is dependent on repository,
   this mean, make not work if repository was changed.
-
+- When you install Lxde, part OpenBox will also installed,
+  when you will uninstall OpenBox you will remove Lxde.
 
 
 
@@ -62,7 +67,7 @@ ls /etc/X11/dm/Sessions/
 grep -h "Name=" /etc/X11/dm/Sessions/* | cut -c 6-
 
 # list from 64bit to 32 bit
-sed -i 's/lib64/lib/g'
+sed 's/lib64/lib/'
 
 
 
