@@ -5,10 +5,13 @@
 funcList1() {
 	#-------------------------------------------------------------
 	funcList2() {
+		# count lines 
+		CountLines=$(cat /tmp/gdi/packages.list | wc -l)
+
 		for i in `seq 1 $CountLines`
 		do
 			#line from `pwd`/data/list/${GRAPHIC}.list
-			ab=$(awk 'NR=='$i `pwd`/data/list/${GRAPHIC}.list)
+			ab=$(awk 'NR=='$i /tmp/gdi/packages.list)
 
 			echo '	<checkbox>
 						<label>'$ab'</label>
