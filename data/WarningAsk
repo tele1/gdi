@@ -3,6 +3,22 @@
 
 
 funcList1() {
+
+	#-------------------------------------------------------------
+	funcList3() { 
+    	if [[ "$GRAPHIC" == "Openbox" ]]; then
+
+			# If in $ae exist macro %{_lib}
+			if  echo $(ls -l /tmp/gdi/ | awk '/StateBall/ && /green_ball/') | grep -q 'Lxde' ; then
+				echo ' 		<text use-markup="true">
+								<label>"<span fgcolor='"'"'red'"'"'><big><b>'"Warnig: Uninstalling Openbox will not be full, you should unistall Lxde first."'</b></big></span>"</label>
+							</text> 
+							<hseparator width-request="100"></hseparator>'
+			fi
+		fi
+	}
+	#-------------------------------------------------------------
+
 	#-------------------------------------------------------------
 	funcList2() {
 		# count lines 
@@ -19,7 +35,7 @@ funcList1() {
 						<action>echo Odznaczyłeś '$ab' .</action>
 						<action>if true echo "'$ab'" >> /tmp/gdi/packages.list</action> 
 						<action>if false echo "$(cat /tmp/gdi/packages.list | grep -v "'$ab'")" > /tmp/gdi/packages.list</action> 
-						<action>echo "======="</action> 
+						<action>echo "======="</action>
 						<action>cat /tmp/gdi/packages.list</action> 
 					</checkbox>'
 		done
@@ -30,11 +46,11 @@ funcList1() {
 	#if echo "$WORK" | grep -q "Uninstall"; then
 	if [[ "$WORK" == "Uninstall" ]]; then
 
-	echo '		<text>
+	echo '		'"`funcList3`"'			<text>
 					<label>You can check which packages will removed</label>
 				</text>
 				<text>
-					<label>and you can unmark, if you need have:</label>
+					<label>and you can unmark, if you need:</label>
 				</text>
 
 			<expander expanded="false" use-underline="true">

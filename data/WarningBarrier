@@ -12,8 +12,7 @@ export Barrier='
 
 
 				<text use-markup="true">
-					<label>"<span size='"'large'"' color='"'red'"'>Warning:    You have only 1 desktop enviroment installed
- and you can not uninstall last. </span>"</label>
+					<label>"<span size='"'large'"' color='"'red'"'>Warning:    Uninstall desktop enviroment which you use now is not save.</span>"</label>
 				</text>
 		</hbox>
 

@@ -4,19 +4,16 @@ GDI 		- PCLinuxOS desktop environment installation manager.
 			- Designed for PCLinuxOS system.
 
 #       Name:     GDI   - Graphical Desktop Installer
-#       Version:  19
+#       Version:  1 Beta
 #       License:  GNU GPL v3
 #                 https://gnu.org/licenses/gpl.html
-#		Date:     14.12.2015
+#		Date:     19.12.2015
 
 
-#======================================================
-	This version is alpha still, so something can fail,
-	or remove needed packages from system and broke.
-#======================================================
 
 
-		== IMPORTANT DEPENDENCIES ==
+
+========= IMPORTANT DEPENDENCIES =========
 /etc/X11/dm/Sessions/*
 gdm
 gtkdialog
@@ -28,7 +25,9 @@ grep
 ls
 cut
 apt
-
+comm
+arch
+sort
 
 
 
@@ -52,9 +51,7 @@ apt
 
 ========= WARNINGS: =========
 - This software is dependent on repository,
-  this mean, make not work if repository was changed.
-- When you install Lxde, part OpenBox will also installed,
-  when you will uninstall OpenBox you will remove Lxde.
+  this mean, make not work correct if repository was changed.
 
 
 
@@ -69,5 +66,24 @@ grep -h "Name=" /etc/X11/dm/Sessions/* | cut -c 6-
 # list from 64bit to 32 bit
 sed 's/lib64/lib/'
 
+$ echo $XDG_CURRENT_DESKTOP
+MATE
 
+ echo $DESKTOP_SESSION
+05MATE
+
+$ ps -e | grep 'mate-session'
+ 6876 ?        00:00:00 mate-session
+
+$ cat /etc/sysconfig/desktop
+DISPLAYMANAGER=GNOME
+
+$ cat $home.dmrc
+[Desktop]
+Session=05MATE
+
+========= History: ===========
+
+28.09.2015 - Alpha 
+19.12.2015 - Beta   
 

@@ -56,10 +56,10 @@ function FuncWarningAsk() {
 	# For 32 bit and 64 bit Support :-)
 	if [[ "$arch" == "x86_64" ]]; then
 		# 64 bit system
-		cat `pwd`/data/list/${GRAPHIC}.list  | sort > /tmp/gdi/packages.list
+		cat `pwd`/data/list/${GRAPHIC}.list  | sort | tee /tmp/gdi/packages.debug.list > /tmp/gdi/packages.list 
 	else
 		# for example 32 bit system
-		cat `pwd`/data/list/${GRAPHIC}.list | sed 's/lib64/lib/' | sort > /tmp/gdi/packages.list
+		cat `pwd`/data/list/${GRAPHIC}.list | sed 's/lib64/lib/' | sort | tee /tmp/gdi/packages.debug.list > /tmp/gdi/packages.list 
 	fi
 	#-------------------------------------------------------}
 
@@ -77,10 +77,16 @@ function FuncWarningAsk() {
 	#-----------------------------------------------------------------------------------------------
 	if [[ "$WORK" == "Uninstall" ]]; then
 		
+		# clean file before use
+		: > /tmp/gdi/installed.desktops.list
+		: > /tmp/gdi/comm.packages.list
+
 		# List installed desktops enviroments
-	 	ls -l /tmp/gdi/ | grep StateBall | grep green_ball| cut -d" " -f 10 | sed 's/StateBall//' | sed 's/.png//' > /tmp/gdi/installed.desktops.list
+	 	ls -l /tmp/gdi/ | awk '/StateBall/ && /green_ball/' | awk '{print $9}' | sed 's/StateBall//' | sed 's/.png//' | grep -v "${GRAPHIC}" > /tmp/gdi/installed.desktops.list
 
 		CountLinesIDL=$(cat /tmp/gdi/installed.desktops.list | wc -l)
+
+
 
 
 		for i in `seq 1 $CountLinesIDL`
@@ -91,21 +97,18 @@ function FuncWarningAsk() {
 			#---------------------------------
 			if [[ "$arch" == "x86_64" ]]; then
 				# 64 bit system
-				cat `pwd`/data/list/${ba}.list | sort > /tmp/gdi/comm.packages.list
+				cat `pwd`/data/list/${ba}.list >> /tmp/gdi/comm.packages.list
 			else
 				# 32 bit system
-				cat `pwd`/data/list/${ba}.list | sed 's/lib64/lib/' | sort > /tmp/gdi/comm.packages.list
+				cat `pwd`/data/list/${ba}.list | sed 's/lib64/lib/'  >> /tmp/gdi/comm.packages.list
 			fi
 			#---------------------------------
-
-			echo "$(comm  -13 /tmp/gdi/comm.packages.list /tmp/gdi/packages.list)" > /tmp/gdi/packages.list
-
 		done
+
+			echo "$(cat /tmp/gdi/comm.packages.list | sort)" > /tmp/gdi/comm.packages.list
+			echo "$(comm  -13 /tmp/gdi/comm.packages.list /tmp/gdi/packages.list)" > /tmp/gdi/packages.list
 	fi
 	#-----------------------------------------------------------------------------------------------
-
-
-
 
 
 
@@ -114,11 +117,9 @@ function FuncWarningAsk() {
 		echo "You choose: $WORK , $GRAPHIC"
 
 
-
-	# if is less than or equal to 1
-	if [[ "$COUNT" -le "1" ]]; then
+	if echo "$XDG_CURRENT_DESKTOP" | grep -iq "$GRAPHIC" ; then
 		if [ "$WORK" = "Uninstall" ]; then
-			# This warning will protects you from deleting the last environment
+			# This warning will protects you from deleting the last environment and which you useat this moment.
 			$PATH1/WarningBarrier
 		else
 			$PATH1/WarningAsk	
@@ -147,7 +148,8 @@ function FuncWarningAsk() {
 	if [ $(<"$TMPDIR"/action) = 1 ]; then
 		# Before run terminal all comands should be saved to /tmp/gdi/commands
 		# "packages.list" file is created before execute "WarningAsk"
-		echo -e "apt-get -y $APT \$(cat /tmp/gdi/packages.list) 2>&1 | tee /var/log/gdi/"$NAMELOG""   > "/tmp/gdi/commands"
+		echo "apt-get update" > "/tmp/gdi/commands"
+		echo -e "apt-get -y $APT \$(cat /tmp/gdi/packages.list) 2>&1 | tee /var/log/gdi/"$NAMELOG""   >> "/tmp/gdi/commands"
 		echo "exit" >> "/tmp/gdi/commands"
 
 		# Terminal running and commands from /tmp/gdi/commands inside this terminal.
@@ -166,6 +168,7 @@ function FuncWarningAsk() {
 		echo "Nothing to do"
 	fi
 	#------------------------------------------------------------------------
+
 
 	}
 export -f FuncWarningAsk

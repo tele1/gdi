@@ -1,3 +1,4 @@
+cinnamon
 cinnamon-control-center
 cinnamon-desktop
 cinnamon-screensaver
@@ -5,7 +6,6 @@ cinnamon-session
 cinnamon-settings-daemon
 cinnamon-translations
 cjs
+metacity
 muffin
 nemo
-metacity
-cinnamon
