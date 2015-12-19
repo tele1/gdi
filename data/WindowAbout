@@ -1,14 +1,6 @@
 #!/bin/sh
 
 
-
-
-
-
-
-
-
-
 export WindowAbout='
 <window title="About GDI"  window-position="1"	modal="true" resizable="false">
 	<vbox>
@@ -26,7 +18,6 @@ export WindowAbout='
 		</eventbox>
 
 
-
 		<notebook tab-labels="Info|Licence">
 			<vbox border-width="5">
 
@@ -37,7 +28,7 @@ export WindowAbout='
 
 				<hbox homogeneous="true" space-expand="false" space-fill="false">
 					<button relief="2">
-						<label>Made with Gtkdialog</label>
+						<label>Created in Gtkdialog and Bash.</label>
 						<action>funcURLOpen "http://code.google.com/p/gtkdialog/"</action>
 					</button>
 				</hbox>
@@ -72,8 +63,6 @@ GDI:
 			</vbox>
 
 
-
-
 		</notebook>
 		<hbox space-expand="false" space-fill="false">
 			<button use-stock="true" label="gtk-close" width-request="90">
@@ -85,3 +74,5 @@ GDI:
 </window>
 '
 gtkdialog -c  --program WindowAbout
+
+

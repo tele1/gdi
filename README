@@ -4,10 +4,10 @@ GDI 		- PCLinuxOS desktop environment installation manager.
 			- Designed for PCLinuxOS system.
 
 #       Name:     GDI   - Graphical Desktop Installer
-#       Version:  1 Beta
+#       Version:  2 Beta
 #       License:  GNU GPL v3
 #                 https://gnu.org/licenses/gpl.html
-#		Date:     19.12.2015
+#		Date:     20.12.2015
 
 
 
@@ -28,6 +28,8 @@ apt
 comm
 arch
 sort
+png (library)
+svg (library)
 
 
 
@@ -56,31 +58,41 @@ sort
 
 
 ========= Tips: ===========
-# How list packages from task
-apt-cache depends task-kde4 | cut -d" " -f4
+#-----------------------------------------------{
+# - How create ".list" file ?
+	#   ".list" file work how "task" package, this mean task install suggested packages for desktop environment,
+	#    but ".list" file have also some dependencies, because apt not removing dependencies,
+	#	remove all dependencies can broke system, so ".list" file have only part not important dependencies.
 
-# How list all Desktop Enviroments:
-ls /etc/X11/dm/Sessions/
-grep -h "Name=" /etc/X11/dm/Sessions/* | cut -c 6-
+	# Comand show which packages are needed for task-kde4
+	apt-cache depends task-kde4    
+	apt-cache depends task-kde4    | cut -d" " -f4 
 
-# list from 64bit to 32 bit
-sed 's/lib64/lib/'
+	# Command show which packages use AfterStep
+	apt-cache whatdepends AfterStep
+#-----------------------------------------------}
 
-$ echo $XDG_CURRENT_DESKTOP
-MATE
 
- echo $DESKTOP_SESSION
-05MATE
+# How list all installed Desktop Enviroments:
+	ls /etc/X11/dm/Sessions/
+	grep -h "Name=" /etc/X11/dm/Sessions/* | cut -c 6-
 
-$ ps -e | grep 'mate-session'
- 6876 ?        00:00:00 mate-session
+# Other:
+	$ echo $XDG_CURRENT_DESKTOP
+	MATE
 
-$ cat /etc/sysconfig/desktop
-DISPLAYMANAGER=GNOME
+	$ echo $DESKTOP_SESSION
+	05MATE
 
-$ cat $home.dmrc
-[Desktop]
-Session=05MATE
+	$ ps -e | grep 'mate-session'
+	6876 ?        00:00:00 mate-session
+
+	$ cat /etc/sysconfig/desktop
+	DISPLAYMANAGER=GNOME
+
+	$ cat $home.dmrc
+	[Desktop]
+	Session=05MATE
 
 ========= History: ===========
 

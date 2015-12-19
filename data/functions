@@ -2,6 +2,7 @@
 
 echo "-----------"
 echo "$PATH1 - PATH1"
+export PATH1="$PATH1"
 echo "-----------"
 
 
@@ -56,10 +57,10 @@ function FuncWarningAsk() {
 	# For 32 bit and 64 bit Support :-)
 	if [[ "$arch" == "x86_64" ]]; then
 		# 64 bit system
-		cat `pwd`/data/list/${GRAPHIC}.list  | sort | tee /tmp/gdi/packages.debug.list > /tmp/gdi/packages.list 
+		cat $PATH1/list/${GRAPHIC}.list  | sort | tee /tmp/gdi/packages.debug.list > /tmp/gdi/packages.list 
 	else
 		# for example 32 bit system
-		cat `pwd`/data/list/${GRAPHIC}.list | sed 's/lib64/lib/' | sort | tee /tmp/gdi/packages.debug.list > /tmp/gdi/packages.list 
+		cat $PATH1/list/${GRAPHIC}.list | sed 's/lib64/lib/' | sort | tee /tmp/gdi/packages.debug.list > /tmp/gdi/packages.list 
 	fi
 	#-------------------------------------------------------}
 
@@ -97,10 +98,10 @@ function FuncWarningAsk() {
 			#---------------------------------
 			if [[ "$arch" == "x86_64" ]]; then
 				# 64 bit system
-				cat `pwd`/data/list/${ba}.list >> /tmp/gdi/comm.packages.list
+				cat $PATH1/list/${ba}.list >> /tmp/gdi/comm.packages.list
 			else
 				# 32 bit system
-				cat `pwd`/data/list/${ba}.list | sed 's/lib64/lib/'  >> /tmp/gdi/comm.packages.list
+				cat $PATH1/list/${ba}.list | sed 's/lib64/lib/'  >> /tmp/gdi/comm.packages.list
 			fi
 			#---------------------------------
 		done

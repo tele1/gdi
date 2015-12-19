@@ -1,21 +1,14 @@
-#!/bin/sh
-
-
-#---------------------------{
-# place gdi files
-#if [ "`pwd`" = "/usr/bin" ]; then
-#	export	PATH1="/usr/share/gdi"
-#else
-#	export	PATH1="`pwd`/data"
-#fi
-#---------------------------}
-
-
-
+#!/bin/bash
 
 
 SCREEN=$(cat /tmp/gdi/screenshot)
 echo ""$PATH1"/screenshots/"$SCREEN""
+
+FILE=""$PATH1"/links/$(echo $SCREEN | sed 's/.png/.link/')"
+echo "File: $FILE"
+
+LINK="$(cat $FILE)"
+echo "$LINK"
 
 
 
@@ -31,9 +24,16 @@ export WindowAbout='
 	</frame>
 
 	<hbox  homogeneous="true">
-<text>
-    <label>"'"$SCREEN"'"</label>
-</text>
+		<pixmap>
+			<input file>"'"$PATH1"'/icons/desktop/x32/'"$SCREEN"'"</input>
+		</pixmap>
+		<text>
+    		<label>"'"$SCREEN"'"</label>
+		</text>
+		<button>
+			<label>"Link to website."</label>
+			<action>funcURLOpen "'$LINK'"</action>
+		</button>
 		<button ok></button>
 	</hbox>
 </vbox>

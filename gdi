@@ -3,7 +3,7 @@
 #---------------------------{
 # place gdi files
 if [ "`pwd`" = "/usr/bin" ]; then
-	export	PATH1="/usr/share/gdi"
+	export	PATH1="/usr/share/gdi/data"
 else
 	export	PATH1="`pwd`/data"
 fi
@@ -145,7 +145,7 @@ export MAIN_DIALOG='
 						<button>
 							<label>Screenshot</label>
 							<action>echo "You pressed screenshot button."</action>
-							<action>SCREENSHOT=cinammon.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+							<action>SCREENSHOT=cinnamon.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 							<action>. '"$PATH1"'/WindowScreenshots</action>
 						</button>
 					</hbox>
@@ -174,7 +174,7 @@ export MAIN_DIALOG='
 							<button>
 								<label>Screenshot</label>
 								<action>echo "You pressed screenshot button."</action>
-								<action>SCREENSHOT=e19.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+								<action>SCREENSHOT=enlightenment.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 								<action>. '"$PATH1"'/WindowScreenshots</action>
 							</button>
 						</hbox>
@@ -232,7 +232,7 @@ export MAIN_DIALOG='
 							<button>
 								<label>Screenshot</label>
 								<action>echo "You pressed screenshot button."</action>
-								<action>SCREENSHOT=fvwm2.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
+								<action>SCREENSHOT=fvwm.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 								<action>. '"$PATH1"'/WindowScreenshots</action>
 							</button>
 						</hbox>

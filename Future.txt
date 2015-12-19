@@ -2,11 +2,5 @@
 
 		JOBS:
 
-1. Icons with picture.
-2. Link to web page desktop enviroment.
-3. Add multolanguage support.
-4. Improve destktop enviroments lists.
-5. Add warning when will uninstalled packages which are used from other desktop enviroments and or uncheck.
-
-
-
+1. Add multilanguage support.
+2. Improve destktop enviroments lists.

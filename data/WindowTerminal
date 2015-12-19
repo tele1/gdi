@@ -1,14 +1,6 @@
 #!/bin/bash
 
 
-
-
-
-
-
-
-
-
 GTKDIALOG=gtkdialog
 
 export MAIN_DIALOG='

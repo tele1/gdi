@@ -1,5 +1,6 @@
 #!/bin/sh
 
+echo "This script sort every file in this folder."
 
  a=$(ls | grep ".list")
  b=$(echo "$a" | wc -l)

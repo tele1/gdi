@@ -32,7 +32,7 @@ funcList1() {
 			echo '	<checkbox>
 						<label>'$ab'</label>
 						<default>true</default>
-						<action>echo Odznaczyłeś '$ab' .</action>
+						<action>echo "Odznaczyłeś '$ab' ."</action>
 						<action>if true echo "'$ab'" >> /tmp/gdi/packages.list</action> 
 						<action>if false echo "$(cat /tmp/gdi/packages.list | grep -v "'$ab'")" > /tmp/gdi/packages.list</action> 
 						<action>echo "======="</action>
@@ -56,8 +56,8 @@ funcList1() {
 			<expander expanded="false" use-underline="true">
 				<vbox scrollable="true" width-request="220" width="250" height="300">
 
-
 				'"`funcList2`"'
+
 				</vbox>
 					<label>Click to show list:</label>
 			</expander>
