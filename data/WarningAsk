@@ -64,17 +64,18 @@ funcList1() {
 '
 	elif [[ "$WORK" == "Install" ]]; then
 
-#			ac=$(apt-get -s dist-upgrade | awk '/^Inst/ { print $2 }'| wc -l)
-			ac=$(cat /tmp/gdi/updates)
 
-			if [ "$ac" -ge 1 ]; then
-				echo ' 		<text use-markup="true">
-								<label>"<span fgcolor='"'"'red'"'"'><big><b>'$"Warnig: Your system is not fully updated. Please "'</b></big></span>"</label>
-							</text> 
-							<hseparator width-request="100"></hseparator>'
-			else
+#			ac=$(apt-get -s dist-upgrade | awk '/^Inst/ { print $2 }'| wc -l)
+#			ac=$(cat /tmp/gdi/updates)
+
+#			if [ "$ac" -ge 1 ]; then
+#				echo ' 		<text use-markup="true">
+#								<label>"<span fgcolor='"'"'red'"'"'><big><b>'$"Warnig: Your system is not fully updated. Please update your system."'</b></big></span>"</label>
+#							</text> 
+#							<hseparator width-request="100"></hseparator>'
+#			else
 				echo '<hseparator width-request="100"></hseparator>'
-			fi
+#			fi
 
 	else
 		echo '<text>

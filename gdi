@@ -39,8 +39,38 @@ export TMPDIR=/tmp/"$(basename $0)"
 	export TEXTDOMAINDIR="/usr/share/locale"
 ##=========================================
 
+
+
+#------------------------------
+#Splash
+echo 0 > /tmp/gdi/splash
+export SPLASH='
+<window title="PCC" icon-name="gtk-preferences" resizable="true" decorated="false">'"
+<vbox>
+ <text height-request=\"50\" use-markup=\"true\"><label>\"<b><span size='"'x-large'"' color='"'orange'"'>GDI checks updates, please wait.</span></b>\"</label></text>"'
+ <progressbar visible="false">
+  <label>nn</label>
+  <input>while [ "$M" != "100" ]; do M=`cat /tmp/gdi/splash`; echo $M; usleep 500000; done</input>
+  <action type="exit">Ready</action>
+ </progressbar>
+</vbox></window>'
+gtkdialog -p SPLASH --center &
+#------------------------------
+
+
+
 # Your system is updated ? 0 -yes , < -no
-apt-get -s dist-upgrade | awk '/^Inst/ { print $2 }'| wc -l > /tmp/gdi/updates
+echo "========= check for updates ====================={"
+time apt-get update
+time apt-get -s dist-upgrade | awk '/^Inst/ { print $2 }'| wc -l > /tmp/gdi/updates
+echo "==================================================}"
+
+UPDATEDSTATUS=$(cat /tmp/gdi/updates)
+	# Open window WarningUpdate if exist updates.
+	if [ "$UPDATEDSTATUS" -ge 1 ]; then
+		. "$PATH1/WarningUpdate"
+	fi
+
 
 # Load all functions from "functions" file
 . "$PATH1/functions"
@@ -470,6 +500,7 @@ export MAIN_DIALOG='
 			</hbox>
 
 	</vbox>
+<action signal="show">echo 100 > /tmp/gdi/splash</action>
 </window>
 '
 

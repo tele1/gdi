@@ -12,20 +12,14 @@ export WarningRoot='
 				</pixmap>
 				<vbox>
 				<text use-markup="true">
-					<label>"<span size='"'large'"' color='"'red'"'>'$"Warning:    This script must be run as superuser (root)! "'</span>"</label>
+					<label>"<span size='"'large'"' color='"'red'"'>'$"Warning:  Your system is not fully updated. We recommend update your system and close Synaptic, before use GDI. "'</span>"</label>
 				</text>
 				</vbox>
 			</hbox>
 		</frame>
 		<hbox>
-			<button>
-				<label>'$"exit"'</label>
-				<input file icon="exit"></input>
-				<action>echo You pressed exit button</action>
-				<action type="exit">Exit by button</action>
-			</button>
+			<button ok></button>
 		</hbox>
 	</vbox>'
 
 gtkdialog -c --program WarningRoot
-exit 1

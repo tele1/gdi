@@ -160,8 +160,8 @@ function FuncWarningAsk() {
 	if [ $(<"$TMPDIR"/action) = 1 ]; then
 		# Before run terminal all comands should be saved to /tmp/gdi/commands
 		# "packages.list" file is created before execute "WarningAsk"
-		echo "apt-get update" > "/tmp/gdi/commands"
-		echo -e "apt-get -y $APT \$(cat /tmp/gdi/packages.list) 2>&1 | tee /var/log/gdi/"$NAMELOG""   >> "/tmp/gdi/commands"
+#		echo "apt-get update" > "/tmp/gdi/commands"
+		echo -e "apt-get -y $APT \$(cat /tmp/gdi/packages.list) 2>&1 | tee /var/log/gdi/"$NAMELOG""   > "/tmp/gdi/commands"
 		echo "exit" >> "/tmp/gdi/commands"
 
 		# Terminal running and commands from /tmp/gdi/commands inside this terminal.
