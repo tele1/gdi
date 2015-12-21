@@ -4,10 +4,10 @@ GDI 		- PCLinuxOS desktop environment installation manager.
 			- Designed for PCLinuxOS system.
 
 #       Name:     GDI   - Graphical Desktop Installer
-#       Version:  2 Beta
+#       Version:  3 Beta
 #       License:  GNU GPL v3
 #                 https://gnu.org/licenses/gpl.html
-#		Date:     20.12.2015
+#		Date:     21.12.2015
 
 
 
@@ -63,6 +63,7 @@ svg (library)
 	#   ".list" file work how "task" package, this mean task install suggested packages for desktop environment,
 	#    but ".list" file have also some dependencies, because apt not removing dependencies,
 	#	remove all dependencies can broke system, so ".list" file have only part not important dependencies.
+	#	".list"files should be sorted, in list folder exist script which can help.
 
 	# Comand show which packages are needed for task-kde4
 	apt-cache depends task-kde4    

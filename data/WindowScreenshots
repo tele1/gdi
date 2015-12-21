@@ -31,7 +31,7 @@ export WindowAbout='
     		<label>"'"$SCREEN"'"</label>
 		</text>
 		<button>
-			<label>"Link to website."</label>
+			<label>'$"Link to website."'</label>
 			<action>funcURLOpen "'$LINK'"</action>
 		</button>
 		<button ok></button>

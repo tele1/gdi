@@ -13,7 +13,7 @@ export WarningAsk='
 			</pixmap>
 				<vbox>
 					<text>
-						<label>"Ready!"</label>
+						<label>'$"Ready!"'</label>
 					</text>
 				</vbox>
 		</hbox>

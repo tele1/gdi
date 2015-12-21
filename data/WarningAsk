@@ -32,7 +32,7 @@ funcList1() {
 			echo '	<checkbox>
 						<label>'$ab'</label>
 						<default>true</default>
-						<action>echo "Odznaczyłeś '$ab' ."</action>
+						<action>echo "You deselect '$ab' ."</action>
 						<action>if true echo "'$ab'" >> /tmp/gdi/packages.list</action> 
 						<action>if false echo "$(cat /tmp/gdi/packages.list | grep -v "'$ab'")" > /tmp/gdi/packages.list</action> 
 						<action>echo "======="</action>
@@ -47,10 +47,10 @@ funcList1() {
 	if [[ "$WORK" == "Uninstall" ]]; then
 
 	echo '		'"`funcList3`"'			<text>
-					<label>You can check which packages will removed</label>
+					<label>'$"You can check which packages will be removed"'</label>
 				</text>
 				<text>
-					<label>and you can unmark, if you need:</label>
+					<label>'$"and you can unmark, if you need some of them:"'</label>
 				</text>
 
 			<expander expanded="false" use-underline="true">
@@ -59,11 +59,23 @@ funcList1() {
 				'"`funcList2`"'
 
 				</vbox>
-					<label>Click to show list:</label>
+					<label>'$"Click to show list:"'</label>
 			</expander>
 '
 	elif [[ "$WORK" == "Install" ]]; then
-			echo '<hseparator width-request="100"></hseparator>'
+
+#			ac=$(apt-get -s dist-upgrade | awk '/^Inst/ { print $2 }'| wc -l)
+			ac=$(cat /tmp/gdi/updates)
+
+			if [ "$ac" -ge 1 ]; then
+				echo ' 		<text use-markup="true">
+								<label>"<span fgcolor='"'"'red'"'"'><big><b>'$"Warnig: Your system is not fully updated. Please "'</b></big></span>"</label>
+							</text> 
+							<hseparator width-request="100"></hseparator>'
+			else
+				echo '<hseparator width-request="100"></hseparator>'
+			fi
+
 	else
 		echo '<text>
 				<label>Error funcList</label>

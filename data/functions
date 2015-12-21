@@ -5,6 +5,11 @@ echo "$PATH1 - PATH1"
 export PATH1="$PATH1"
 echo "-----------"
 
+##=========================================
+##		i18n - Multilanguage support
+	export TEXTDOMAIN=gdi
+	export TEXTDOMAINDIR="/usr/share/locale"
+##=========================================
 
 #############################################################################################################
 #          WarningAsk																						#
@@ -114,7 +119,13 @@ function FuncWarningAsk() {
 
 
 	# question inside "WarningAsk" window.
-	export ASK="Are you sure you want $WORK $GRAPHIC ?		"
+	if [[ "$WORK" == "Install" ]]; then
+		export ASK=$"Are you sure you want install $GRAPHIC ?		"
+	else
+		export ASK=$"Are you sure you want uninstall $GRAPHIC ?		"
+	fi
+
+
 		echo "You choose: $WORK , $GRAPHIC"
 
 

@@ -10,7 +10,7 @@ export Barrier='
 					<input file stock="gtk-dialog-warning"></input>
 				</pixmap>
 				<text use-markup="true">
-					<label>"<span size='"'large'"' color='"'red'"'>Warning:    Uninstall desktop enviroment which you use now is not save.</span>"</label>
+					<label>"<span size='"'large'"' color='"'red'"'>'$"Warning:    Uninstalling desktop enviroment which you are using now is not safe."'</span>"</label>
 				</text>
 		</hbox>
 

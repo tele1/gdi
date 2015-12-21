@@ -32,6 +32,16 @@ fi
 export TMPDIR=/tmp/"$(basename $0)"
 
 
+
+##=========================================
+##		i18n - Multilanguage support
+	export TEXTDOMAIN=gdi
+	export TEXTDOMAINDIR="/usr/share/locale"
+##=========================================
+
+# Your system is updated ? 0 -yes , < -no
+apt-get -s dist-upgrade | awk '/^Inst/ { print $2 }'| wc -l > /tmp/gdi/updates
+
 # Load all functions from "functions" file
 . "$PATH1/functions"
 
@@ -76,7 +86,7 @@ export MAIN_DIALOG='
 							<input file>'"$PATH1"'/icons/gdi/green_ball.png</input>
         				</pixmap>
 						<text>
-							<label>"- Green ball means desktop environment is installed."</label>
+							<label>'$"- Green ball means desktop environment is installed."'</label>
 						</text>
 					</hbox>
 					<hbox>
@@ -84,7 +94,7 @@ export MAIN_DIALOG='
 							<input file>'"$PATH1"'/icons/gdi/red_ball.png</input>
         				</pixmap>
 						<text>
-							<label>"- Red ball means desktop environment is uninstalled."</label>
+							<label>'$"- Red ball means desktop environment is uninstalled."'</label>
 						</text>
 					</hbox>
 				</vbox>
@@ -105,7 +115,7 @@ export MAIN_DIALOG='
 							<variable>BallAfterStep</variable>
         				</pixmap>
 						<button>
-							<label>Install / Uninstall</label>
+							<label>'$"Install / Uninstall"'</label>
 							<variable>AfterStepInstall</variable>
 							<input file icon="bottom"></input>
 							<action>echo "You pressed button AfterStep Install"</action>
@@ -114,7 +124,7 @@ export MAIN_DIALOG='
 							'"`funcRefreshAllBall`"'
 						</button>
 						<button>
-							<label>Screenshot</label>
+							<label>'$"Screenshot"'</label>
 							<action>echo "You pressed screenshot button."</action>
 							<action>SCREENSHOT=afterstep.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 							<action>. '"$PATH1"'/WindowScreenshots</action>
@@ -134,7 +144,7 @@ export MAIN_DIALOG='
 							<variable>BallCinnamon</variable>
         				</pixmap>
 						<button>
-							<label>Install / Uninstall</label>
+							<label>'$"Install / Uninstall"'</label>
 							<variable>CinnamonInstall</variable>
 							<input file icon="bottom"></input>
 							<action>echo "You pressed button Cinnamon Install"</action>
@@ -143,7 +153,7 @@ export MAIN_DIALOG='
 							'"`funcRefreshAllBall`"'
 						</button>
 						<button>
-							<label>Screenshot</label>
+							<label>'$"Screenshot"'</label>
 							<action>echo "You pressed screenshot button."</action>
 							<action>SCREENSHOT=cinnamon.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 							<action>. '"$PATH1"'/WindowScreenshots</action>
@@ -163,7 +173,7 @@ export MAIN_DIALOG='
 								<variable>BallEnlightenment</variable>
         					</pixmap>
 							<button>
-								<label>Install / Uninstall</label>
+								<label>'$"Install / Uninstall"'</label>
 								<variable>EnlightenmentInstall</variable>
 								<input file icon="bottom"></input>
 								<action>echo "You pressed button Enlightenment Install"</action>
@@ -172,7 +182,7 @@ export MAIN_DIALOG='
 								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
-								<label>Screenshot</label>
+								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=enlightenment.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 								<action>. '"$PATH1"'/WindowScreenshots</action>
@@ -192,7 +202,7 @@ export MAIN_DIALOG='
 								<variable>BallFluxbox</variable>
         					</pixmap>
 							<button>
-								<label>Install / Uninstall</label>
+								<label>'$"Install / Uninstall"'</label>
 								<variable>FluxboxInstall</variable>
 								<input file icon="bottom"></input>
 								<action>echo "You pressed button Fluxbox Install"</action>
@@ -201,7 +211,7 @@ export MAIN_DIALOG='
 								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
-								<label>Screenshot</label>
+								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=fluxbox.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 								<action>. '"$PATH1"'/WindowScreenshots</action>
@@ -221,7 +231,7 @@ export MAIN_DIALOG='
 								<variable>BallFVWM</variable>
         					</pixmap>
 							<button>
-								<label>Install / Uninstall</label>
+								<label>'$"Install / Uninstall"'</label>
 								<variable>FVWMInstall</variable>
 								<input file icon="bottom"></input>
 								<action>echo "You pressed button FVWM Install"</action>
@@ -230,7 +240,7 @@ export MAIN_DIALOG='
 								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
-								<label>Screenshot</label>
+								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=fvwm.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 								<action>. '"$PATH1"'/WindowScreenshots</action>
@@ -250,7 +260,7 @@ export MAIN_DIALOG='
 								<variable>BallIceWM</variable>
         					</pixmap>
 							<button>
-								<label>Install / Uninstall</label>
+								<label>'$"Install / Uninstall"'</label>
 								<variable>IceWMInstall</variable>
 								<input file icon="bottom"></input>
 								<action>echo "You pressed button IceWM Install"</action>
@@ -259,7 +269,7 @@ export MAIN_DIALOG='
 								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
-								<label>Screenshot</label>
+								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=icewm.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 								<action>. '"$PATH1"'/WindowScreenshots</action>
@@ -279,7 +289,7 @@ export MAIN_DIALOG='
 								<variable>BallKde</variable>
         					</pixmap>
 							<button>
-								<label>Install / Uninstall</label>
+								<label>'$"Install / Uninstall"'</label>
 								<variable>KdeInstall</variable>
 								<input file icon="bottom"></input>
 								<action>echo "You pressed button Kde Install"</action>
@@ -288,7 +298,7 @@ export MAIN_DIALOG='
 								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
-								<label>Screenshot</label>
+								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=kde.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 								<action>. '"$PATH1"'/WindowScreenshots</action>
@@ -308,7 +318,7 @@ export MAIN_DIALOG='
 								<variable>BallLxde</variable>
         					</pixmap>
 							<button>
-								<label>Install / Uninstall</label>
+								<label>'$"Install / Uninstall"'</label>
 								<variable>LxdeInstall</variable>
 								<input file icon="bottom"></input>
 								<action>echo "You pressed button Lxde Install."</action>
@@ -317,7 +327,7 @@ export MAIN_DIALOG='
 							'"`funcRefreshAllBall`"'
 							</button>
 							<button>
-								<label>Screenshot</label>
+								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=lxde.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 								<action>. '"$PATH1"'/WindowScreenshots</action>
@@ -337,7 +347,7 @@ export MAIN_DIALOG='
 								<variable>BallMate</variable>
         					</pixmap>
 							<button>
-								<label>Install / Uninstall</label>
+								<label>'$"Install / Uninstall"'</label>
 								<variable>MateInstall</variable>
 								<input file icon="bottom"></input>
 								<action>echo "You pressed button Mate Install"</action>
@@ -346,7 +356,7 @@ export MAIN_DIALOG='
 								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
-								<label>Screenshot</label>
+								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=mate.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 								<action>. '"$PATH1"'/WindowScreenshots</action>
@@ -366,7 +376,7 @@ export MAIN_DIALOG='
 								<variable>BallOpenbox</variable>
         					</pixmap>
 							<button>
-								<label>Install / Uninstall</label>
+								<label>'$"Install / Uninstall"'</label>
 								<variable>OpenboxInstall</variable>
 								<input file icon="bottom"></input>
 								<action>echo "You pressed button Openbox Install"</action>
@@ -375,7 +385,7 @@ export MAIN_DIALOG='
 								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
-								<label>Screenshot</label>
+								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=openbox.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 								<action>. '"$PATH1"'/WindowScreenshots</action>
@@ -395,7 +405,7 @@ export MAIN_DIALOG='
 								<variable>BallWindowMaker</variable>
         					</pixmap>
 							<button>
-								<label>Install / Uninstall</label>
+								<label>'$"Install / Uninstall"'</label>
 								<variable>WindowMakerInstall</variable>
 								<input file icon="bottom"></input>
 								<action>echo "You pressed button WindowMaker Install"</action>
@@ -404,7 +414,7 @@ export MAIN_DIALOG='
 								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
-								<label>Screenshot</label>
+								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=windowmaker.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 								<action>. '"$PATH1"'/WindowScreenshots</action>
@@ -424,7 +434,7 @@ export MAIN_DIALOG='
 								<variable>BallXfce</variable>
         					</pixmap>
 							<button>
-								<label>Install / Uninstall</label>
+								<label>'$"Install / Uninstall"'</label>
 								<variable>XfceInstall</variable>
 								<input file icon="bottom"></input>
 								<action>echo "You pressed button Xfce Install"</action>
@@ -433,7 +443,7 @@ export MAIN_DIALOG='
 								'"`funcRefreshAllBall`"'
 							</button>
 							<button>
-								<label>Screenshot</label>
+								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=xfce.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
 								<action>. '"$PATH1"'/WindowScreenshots</action>
@@ -452,10 +462,10 @@ export MAIN_DIALOG='
 					<action>. '"$PATH1"'/WindowAbout</action>
 				</button>
 				<button>
-					<label>Exit</label>
+					<label>'$"Exit"'</label>
 					<input file icon="exit"></input>
 					<action>echo You pressed exit button</action>
-					<action type="exit">Exit by button</action>
+					<action type="exit">"Exit by button"</action>
 				</button>
 			</hbox>
 
