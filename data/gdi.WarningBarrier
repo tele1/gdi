@@ -1,5 +1,10 @@
 #! /bin/sh
 
+##=========================================
+##		i18n - Multilanguage support
+		TEXTDOMAIN=gdi.WarningBarrier
+		TEXTDOMAINDIR="/usr/share/locale"
+##=========================================
 
 export Barrier='
 <window title="Barrier" icon-name="gtk-dialog-warning" default_width="50">

@@ -1,6 +1,12 @@
 #!/bin/sh
 
 
+##=========================================
+##		i18n - Multilanguage support
+		TEXTDOMAIN=gdi.WarningAsk
+		TEXTDOMAINDIR="/usr/share/locale"
+##=========================================
+
 
 funcList1() {
 
@@ -46,7 +52,7 @@ funcList1() {
 	#if echo "$WORK" | grep -q "Uninstall"; then
 	if [[ "$WORK" == "Uninstall" ]]; then
 
-	echo '		'"`funcList3`"'			<text>
+		echo '		'"`funcList3`"'			<text>
 					<label>'$"You can check which packages will be removed"'</label>
 				</text>
 				<text>
@@ -63,19 +69,7 @@ funcList1() {
 			</expander>
 '
 	elif [[ "$WORK" == "Install" ]]; then
-
-
-#			ac=$(apt-get -s dist-upgrade | awk '/^Inst/ { print $2 }'| wc -l)
-#			ac=$(cat /tmp/gdi/updates)
-
-#			if [ "$ac" -ge 1 ]; then
-#				echo ' 		<text use-markup="true">
-#								<label>"<span fgcolor='"'"'red'"'"'><big><b>'$"Warnig: Your system is not fully updated. Please update your system."'</b></big></span>"</label>
-#							</text> 
-#							<hseparator width-request="100"></hseparator>'
-#			else
-				echo '<hseparator width-request="100"></hseparator>'
-#			fi
+		echo '<hseparator width-request="100"></hseparator>'
 
 	else
 		echo '<text>

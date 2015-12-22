@@ -1,5 +1,10 @@
 #!/bin/bash
 
+##=========================================
+##		i18n - Multilanguage support
+		TEXTDOMAIN=gdi.WarningUpdate
+		TEXTDOMAINDIR="/usr/share/locale"
+##=========================================
 
 GTKDIALOG=gtkdialog
 

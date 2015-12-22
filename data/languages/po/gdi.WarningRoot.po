@@ -1,0 +1,28 @@
+# Polish translations for Gdi package.
+# Copyright (C) 2015 THE Gdi'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the Gdi package.
+# gg <forum@pclinuxos.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Gdi 4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-22 22:05+0100\n"
+"PO-Revision-Date: 2015-12-22 22:21+0100\n"
+"Last-Translator: tele <tele@zastrzezony.pl>\n"
+"Language-Team: Polish\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: gdi.WarningRoot:20
+msgid "Warning:    This script must be run as superuser (root)! "
+msgstr "Ostrzeżenie:    Ten skrypt musi być uruchomiony z konta (root) !"
+
+#: gdi.WarningRoot:27
+msgid "exit"
+msgstr "Wyjście"

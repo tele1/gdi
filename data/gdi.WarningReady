@@ -1,5 +1,10 @@
-#! /bin/sh
+#! /bin/bash
 
+##=========================================
+##		i18n - Multilanguage support
+		TEXTDOMAIN=gdi.WarningReady
+		TEXTDOMAINDIR="/usr/share/locale"
+##=========================================
 
 export WarningAsk='
 <window title="WarningAsk" icon-name="gtk-dialog-info">

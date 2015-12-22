@@ -1,6 +1,12 @@
 #!/bin/sh
 
 
+##=========================================
+##		i18n - Multilanguage support
+		TEXTDOMAIN=gdi.WindowAbout
+		TEXTDOMAINDIR="/usr/share/locale"
+##=========================================
+
 export WindowAbout='
 <window title="About GDI"  window-position="1"	modal="true" resizable="false">
 	<vbox>

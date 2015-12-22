@@ -1,0 +1,42 @@
+# Polish translations for Gdi package.
+# Copyright (C) 2015 THE Gdi'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the Gdi package.
+# gg <forum@pclinuxos.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Gdi 4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-22 22:05+0100\n"
+"PO-Revision-Date: 2015-12-22 22:12+0100\n"
+"Last-Translator: tele <tele@zastrzezony.pl>\n"
+"Language-Team: Polish\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: gdi:119
+msgid "- Green ball means desktop environment is installed."
+msgstr "- Zielona kulka oznacza zainstalowane środowisko."
+
+#: gdi:127
+msgid "- Red ball means desktop environment is uninstalled."
+msgstr "- Czerwona kulka oznacza odinstalowane środowisko."
+
+#: gdi:148 gdi:177 gdi:206 gdi:235 gdi:264 gdi:293 gdi:322 gdi:351 gdi:380
+#: gdi:409 gdi:438 gdi:467
+msgid "Install / Uninstall"
+msgstr "Zainstaluj / Odinstaluj"
+
+#: gdi:157 gdi:186 gdi:215 gdi:244 gdi:273 gdi:302 gdi:331 gdi:360 gdi:389
+#: gdi:418 gdi:447 gdi:476
+msgid "Screenshot"
+msgstr "Zrzut ekranu"
+
+#: gdi:495
+msgid "Exit"
+msgstr "Wyjście"

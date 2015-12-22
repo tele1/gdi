@@ -2,5 +2,4 @@
 
 		JOBS:
 
-1. Add multilanguage support.
-2. Improve destktop enviroments lists.
+1. Improve destktop enviroments lists.

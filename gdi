@@ -12,7 +12,7 @@ fi
 
 # Checking root
 if [[ $EUID -ne 0 ]]; then
-	. "$PATH1"/WarningRoot
+	. "$PATH1"/gdi.WarningRoot
 fi
 
 
@@ -24,7 +24,7 @@ then
 	mkdir /tmp/gdi
 else
 	mkdir /tmp/gdi
-	echo "Info: File /tmp/gdi created."
+	echo "Info: Folder /tmp/gdi created."
 fi
 
 
@@ -35,8 +35,8 @@ export TMPDIR=/tmp/"$(basename $0)"
 
 ##=========================================
 ##		i18n - Multilanguage support
-	export TEXTDOMAIN=gdi
-	export TEXTDOMAINDIR="/usr/share/locale"
+		TEXTDOMAIN=gdi
+		TEXTDOMAINDIR="/usr/share/locale"
 ##=========================================
 
 
@@ -68,12 +68,12 @@ echo "==================================================}"
 UPDATEDSTATUS=$(cat /tmp/gdi/updates)
 	# Open window WarningUpdate if exist updates.
 	if [ "$UPDATEDSTATUS" -ge 1 ]; then
-		. "$PATH1/WarningUpdate"
+		. "$PATH1/gdi.WarningUpdate"
 	fi
 
 
 # Load all functions from "functions" file
-. "$PATH1/functions"
+. "$PATH1/gdi.functions"
 
 
 # Load Buttons status
@@ -157,7 +157,7 @@ export MAIN_DIALOG='
 							<label>'$"Screenshot"'</label>
 							<action>echo "You pressed screenshot button."</action>
 							<action>SCREENSHOT=afterstep.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
-							<action>. '"$PATH1"'/WindowScreenshots</action>
+							<action>. '"$PATH1"'/gdi.WindowScreenshots</action>
 						</button>
 					</hbox>
 				</hbox>
@@ -186,7 +186,7 @@ export MAIN_DIALOG='
 							<label>'$"Screenshot"'</label>
 							<action>echo "You pressed screenshot button."</action>
 							<action>SCREENSHOT=cinnamon.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
-							<action>. '"$PATH1"'/WindowScreenshots</action>
+							<action>. '"$PATH1"'/gdi.WindowScreenshots</action>
 						</button>
 					</hbox>
 				</hbox>
@@ -215,7 +215,7 @@ export MAIN_DIALOG='
 								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=enlightenment.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
-								<action>. '"$PATH1"'/WindowScreenshots</action>
+								<action>. '"$PATH1"'/gdi.WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -244,7 +244,7 @@ export MAIN_DIALOG='
 								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=fluxbox.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
-								<action>. '"$PATH1"'/WindowScreenshots</action>
+								<action>. '"$PATH1"'/gdi.WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -273,7 +273,7 @@ export MAIN_DIALOG='
 								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=fvwm.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
-								<action>. '"$PATH1"'/WindowScreenshots</action>
+								<action>. '"$PATH1"'/gdi.WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -302,7 +302,7 @@ export MAIN_DIALOG='
 								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=icewm.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
-								<action>. '"$PATH1"'/WindowScreenshots</action>
+								<action>. '"$PATH1"'/gdi.WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -331,7 +331,7 @@ export MAIN_DIALOG='
 								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=kde.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
-								<action>. '"$PATH1"'/WindowScreenshots</action>
+								<action>. '"$PATH1"'/gdi.WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -360,7 +360,7 @@ export MAIN_DIALOG='
 								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=lxde.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
-								<action>. '"$PATH1"'/WindowScreenshots</action>
+								<action>. '"$PATH1"'/gdi.WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -389,7 +389,7 @@ export MAIN_DIALOG='
 								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=mate.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
-								<action>. '"$PATH1"'/WindowScreenshots</action>
+								<action>. '"$PATH1"'/gdi.WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -418,7 +418,7 @@ export MAIN_DIALOG='
 								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=openbox.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
-								<action>. '"$PATH1"'/WindowScreenshots</action>
+								<action>. '"$PATH1"'/gdi.WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -447,7 +447,7 @@ export MAIN_DIALOG='
 								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=windowmaker.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
-								<action>. '"$PATH1"'/WindowScreenshots</action>
+								<action>. '"$PATH1"'/gdi.WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -476,7 +476,7 @@ export MAIN_DIALOG='
 								<label>'$"Screenshot"'</label>
 								<action>echo "You pressed screenshot button."</action>
 								<action>SCREENSHOT=xfce.png ; echo "$SCREENSHOT" > /tmp/gdi/screenshot</action>
-								<action>. '"$PATH1"'/WindowScreenshots</action>
+								<action>. '"$PATH1"'/gdi.WindowScreenshots</action>
 							</button>
 						</hbox>
 				</hbox>
@@ -489,7 +489,7 @@ export MAIN_DIALOG='
 				<button space-fill="true">
 					<input file>'"$PATH1"'/icons/gdi/test1.png</input>
 					<action>echo "You pressed GDI button"</action>
-					<action>. '"$PATH1"'/WindowAbout</action>
+					<action>. '"$PATH1"'/gdi.WindowAbout</action>
 				</button>
 				<button>
 					<label>'$"Exit"'</label>

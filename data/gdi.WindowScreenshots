@@ -1,5 +1,10 @@
 #!/bin/bash
 
+##=========================================
+##		i18n - Multilanguage support
+		TEXTDOMAIN=gdi.WindowScreenshots
+		TEXTDOMAINDIR="/usr/share/locale"
+##=========================================
 
 SCREEN=$(cat /tmp/gdi/screenshot)
 echo ""$PATH1"/screenshots/"$SCREEN""

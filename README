@@ -4,10 +4,10 @@ GDI 		- PCLinuxOS desktop environment installation manager.
 			- Designed for PCLinuxOS system.
 
 #       Name:     GDI   - Graphical Desktop Installer
-#       Version:  4 Beta
+#       Version:  5 Beta
 #       License:  GNU GPL v3
 #                 https://gnu.org/licenses/gpl.html
-#		Date:     21.12.2015
+#		Date:     22.12.2015
 
 
 
@@ -42,7 +42,6 @@ svg (library)
 		./gdi
 
 
-
 ========= LOGS: =========
 - Logs are created in 
   /var/log/gdi
@@ -54,7 +53,8 @@ svg (library)
 ========= WARNINGS: =========
 - This software is dependent on repository,
   this mean, make not work correct if repository was changed.
-
+- fvwm2 in 64 bit PCLinuxOS not create session file,
+  however other desktop enviroments can create.
 
 
 ========= Tips: ===========
@@ -72,7 +72,6 @@ svg (library)
 	# Command show which packages use AfterStep
 	apt-cache whatdepends AfterStep
 #-----------------------------------------------}
-
 
 # How list all installed Desktop Enviroments:
 	ls /etc/X11/dm/Sessions/
@@ -95,8 +94,13 @@ svg (library)
 	[Desktop]
 	Session=05MATE
 
+# - script "create.pot.and.po.files" help create ".po" files
+# - script "sort.sh" help sort files, because should be sorted.
+
+
 ========= History: ===========
 
 28.09.2015 - Alpha 
 19.12.2015 - Beta   
+
 
