@@ -50,7 +50,7 @@ export SPLASH='
 
 
 				<text  height-request="50" use-markup="true">
-					<label>"<span size='"'x-large'"' color='"'orange'"'>'$"GDI is checks updates now, please wait."'</span>"</label>
+					<label>"<span size='"'x-large'"' color='"'orange'"'>'$"GDI is checking updates now, please wait."'</span>"</label>
 				</text>
  <progressbar visible="false">
   <label>nn</label>
