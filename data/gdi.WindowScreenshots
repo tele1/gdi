@@ -28,17 +28,20 @@ export WindowAbout='
 		</pixmap>
 	</frame>
 
-	<hbox  homogeneous="true">
+	<hbox   space-expand="true">
 		<pixmap>
 			<input file>"'"$PATH1"'/icons/desktop/x32/'"$SCREEN"'"</input>
 		</pixmap>
+	<vseparator height-request="10"></vseparator>
 		<text>
     		<label>"'"$SCREEN"'"</label>
 		</text>
+	<vseparator height-request="10"></vseparator>
 		<button>
 			<label>'$"Link to website."'</label>
 			<action>funcURLOpen "'$LINK'"</action>
 		</button>
+	<vseparator height-request="10"></vseparator>
 		<button ok></button>
 	</hbox>
 </vbox>

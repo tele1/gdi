@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Gdi 4\n"
+"Project-Id-Version: Gdi 5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-22 22:05+0100\n"
-"PO-Revision-Date: 2015-12-22 22:25+0100\n"
+"POT-Creation-Date: 2015-12-23 18:02+0100\n"
+"PO-Revision-Date: 2015-12-23 18:26+0100\n"
 "Last-Translator: tele <tele@zastrzezony.pl>\n"
 "Language-Team: Polish\n"
 "Language: pl\n"
@@ -19,6 +19,6 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: gdi.WindowScreenshots:39
+#: gdi.WindowScreenshots:41
 msgid "Link to website."
 msgstr "Link do strony internetowej."

@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Gdi 4\n"
+"Project-Id-Version: Gdi 5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-22 22:05+0100\n"
-"PO-Revision-Date: 2015-12-22 22:12+0100\n"
+"POT-Creation-Date: 2015-12-23 18:02+0100\n"
+"PO-Revision-Date: 2015-12-23 18:06+0100\n"
 "Last-Translator: tele <tele@zastrzezony.pl>\n"
 "Language-Team: Polish\n"
 "Language: pl\n"
@@ -19,24 +19,28 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: gdi:119
+#: gdi:53
+msgid "GDI checks updates, please wait."
+msgstr "GDI sprawdza aktualizacje, proszę czekać."
+
+#: gdi:123
 msgid "- Green ball means desktop environment is installed."
 msgstr "- Zielona kulka oznacza zainstalowane środowisko."
 
-#: gdi:127
+#: gdi:131
 msgid "- Red ball means desktop environment is uninstalled."
 msgstr "- Czerwona kulka oznacza odinstalowane środowisko."
 
-#: gdi:148 gdi:177 gdi:206 gdi:235 gdi:264 gdi:293 gdi:322 gdi:351 gdi:380
-#: gdi:409 gdi:438 gdi:467
+#: gdi:152 gdi:181 gdi:210 gdi:239 gdi:268 gdi:297 gdi:326 gdi:355 gdi:384
+#: gdi:413 gdi:442 gdi:471
 msgid "Install / Uninstall"
 msgstr "Zainstaluj / Odinstaluj"
 
-#: gdi:157 gdi:186 gdi:215 gdi:244 gdi:273 gdi:302 gdi:331 gdi:360 gdi:389
-#: gdi:418 gdi:447 gdi:476
+#: gdi:161 gdi:190 gdi:219 gdi:248 gdi:277 gdi:306 gdi:335 gdi:364 gdi:393
+#: gdi:422 gdi:451 gdi:480
 msgid "Screenshot"
 msgstr "Zrzut ekranu"
 
-#: gdi:495
+#: gdi:499
 msgid "Exit"
 msgstr "Wyjście"

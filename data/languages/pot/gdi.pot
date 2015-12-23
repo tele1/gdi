@@ -1,0 +1,44 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-23 18:02+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: gdi:53
+msgid "GDI checks updates, please wait."
+msgstr ""
+
+#: gdi:123
+msgid "- Green ball means desktop environment is installed."
+msgstr ""
+
+#: gdi:131
+msgid "- Red ball means desktop environment is uninstalled."
+msgstr ""
+
+#: gdi:152 gdi:181 gdi:210 gdi:239 gdi:268 gdi:297 gdi:326 gdi:355 gdi:384
+#: gdi:413 gdi:442 gdi:471
+msgid "Install / Uninstall"
+msgstr ""
+
+#: gdi:161 gdi:190 gdi:219 gdi:248 gdi:277 gdi:306 gdi:335 gdi:364 gdi:393
+#: gdi:422 gdi:451 gdi:480
+msgid "Screenshot"
+msgstr ""
+
+#: gdi:499
+msgid "Exit"
+msgstr ""

@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Gdi 4\n"
+"Project-Id-Version: Gdi 5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-22 22:05+0100\n"
-"PO-Revision-Date: 2015-12-22 22:16+0100\n"
+"POT-Creation-Date: 2015-12-23 18:02+0100\n"
+"PO-Revision-Date: 2015-12-23 18:11+0100\n"
 "Last-Translator: tele <tele@zastrzezony.pl>\n"
 "Language-Team: Polish\n"
 "Language: pl\n"
@@ -19,14 +19,30 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: gdi.WarningAsk:56
+#: gdi.WarningAsk:22
+msgid "Are you sure you want install $GRAPHIC ?"
+msgstr "Czy jesteś pewien że chcesz zainstalować $GRAPHIC ?"
+
+#: gdi.WarningAsk:24
+msgid "Are you sure you want uninstall $GRAPHIC ?"
+msgstr "Czy jesteś pewien że chcesz odinstalować $GRAPHIC ?"
+
+#: gdi.WarningAsk:41
+msgid ""
+"Warnig: Uninstalling Openbox will not be full, you should unistall Lxde "
+"first."
+msgstr ""
+"Ostrzeżenie: Odinstalowanie Openbox nie będzie pełne, powinieneś najpierw "
+"odinstalować Lxde."
+
+#: gdi.WarningAsk:77
 msgid "You can check which packages will be removed"
-msgstr "Możesz zobaczyć które pakiety zostaną usunięte"
+msgstr "Możesz sprawdzić które pakiety będą odinstalowane"
 
-#: gdi.WarningAsk:59
+#: gdi.WarningAsk:80
 msgid "and you can unmark, if you need some of them:"
-msgstr "i możesz je odznaczyć, jeżeli potrzebujesz:"
+msgstr "i odznaczyć któryś z nich, jeśli potrzebujesz."
 
-#: gdi.WarningAsk:68
+#: gdi.WarningAsk:89
 msgid "Click to show list:"
 msgstr "Kliknij żeby zobaczyć listę:"

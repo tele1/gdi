@@ -41,13 +41,17 @@ export TMPDIR=/tmp/"$(basename $0)"
 
 
 
-#------------------------------
+#---------------------------------------------
 #Splash
 echo 0 > /tmp/gdi/splash
 export SPLASH='
-<window title="PCC" icon-name="gtk-preferences" resizable="true" decorated="false">'"
+<window title="PCC" icon-name="gtk-preferences" resizable="true" decorated="false">
 <vbox>
- <text height-request=\"50\" use-markup=\"true\"><label>\"<b><span size='"'x-large'"' color='"'orange'"'>GDI checks updates, please wait.</span></b>\"</label></text>"'
+
+
+				<text  height-request="50" use-markup="true">
+					<label>"<span size='"'x-large'"' color='"'orange'"'>'$"GDI checks updates, please wait."'</span>"</label>
+				</text>
  <progressbar visible="false">
   <label>nn</label>
   <input>while [ "$M" != "100" ]; do M=`cat /tmp/gdi/splash`; echo $M; usleep 500000; done</input>
@@ -55,7 +59,7 @@ export SPLASH='
  </progressbar>
 </vbox></window>'
 gtkdialog -p SPLASH --center &
-#------------------------------
+#---------------------------------------------
 
 
 
@@ -133,7 +137,7 @@ export MAIN_DIALOG='
 
 		<frame Status:>
 
-			<vbox scrollable="true" width-request="450" width="525" height="300">
+			<vbox scrollable="true" width-request="450" width="590" height="300">
 
 				<hbox homogeneous="true">
 					<text xalign="0">

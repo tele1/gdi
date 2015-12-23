@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Gdi 4\n"
+"Project-Id-Version: Gdi 5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-22 22:05+0100\n"
-"PO-Revision-Date: 2015-12-22 22:19+0100\n"
+"POT-Creation-Date: 2015-12-23 18:02+0100\n"
+"PO-Revision-Date: 2015-12-23 18:13+0100\n"
 "Last-Translator: tele <tele@zastrzezony.pl>\n"
 "Language-Team: Polish\n"
 "Language: pl\n"

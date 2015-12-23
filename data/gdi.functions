@@ -118,12 +118,7 @@ function FuncWarningAsk() {
 
 
 
-	# question inside "WarningAsk" window.
-	if [[ "$WORK" == "Install" ]]; then
-		export ASK=$"Are you sure you want install $GRAPHIC ?		"
-	else
-		export ASK=$"Are you sure you want uninstall $GRAPHIC ?		"
-	fi
+
 
 
 		echo "You choose: $WORK , $GRAPHIC"
