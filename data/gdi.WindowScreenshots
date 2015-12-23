@@ -38,7 +38,7 @@ export WindowAbout='
 		</text>
 	<vseparator height-request="10"></vseparator>
 		<button>
-			<label>'$"Link to website."'</label>
+			<label>'$"Link to website"'</label>
 			<action>funcURLOpen "'$LINK'"</action>
 		</button>
 	<vseparator height-request="10"></vseparator>

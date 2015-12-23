@@ -9,23 +9,16 @@
 
 
 
-	# question inside "WarningAsk" window.
-#	if [[ "$WORK" == "Install" ]]; then
-#		export ASK=$"Are you sure you want install $GRAPHIC ?		"
-#	else
-#		export ASK=$"Are you sure you want uninstall $GRAPHIC ?		"
-#	fi
 
 #-------------------------------------------------------------
 funcList4() {
 	if [[ "$WORK" == "Uninstall" ]]; then
-		echo	'	 <label>'$"Are you sure you want install $GRAPHIC ?"'</label>	'
+		echo	'	 <label>'$"Are you sure you want to uninstall $GRAPHIC ?"'</label>	'
 	else
-		echo	'	<label>'$"Are you sure you want uninstall $GRAPHIC ?"'</label>	'
+		echo	'	<label>'$"Are you sure you want to install $GRAPHIC ?"'</label>	'
 	fi
 }
 #-------------------------------------------------------------
-
 
 
 
@@ -38,7 +31,7 @@ funcList1() {
 			# If in $ae exist macro %{_lib}
 			if  echo $(ls -l /tmp/gdi/ | awk '/StateBall/ && /green_ball/') | grep -q 'Lxde' ; then
 				echo ' 		<text use-markup="true">
-								<label>"<span fgcolor='"'"'red'"'"'><big><b>'$"Warnig: Uninstalling Openbox will not be full, you should unistall Lxde first."'</b></big></span>"</label>
+								<label>"<span fgcolor='"'"'red'"'"'><big><b>'$"Warnig: Uninstalling Openbox will not be full, you should uninstall Lxde first."'</b></big></span>"</label>
 							</text> 
 							<hseparator width-request="100"></hseparator>'
 			fi
@@ -103,7 +96,6 @@ funcList1() {
 
 
 
-
 export WarningAsk='
 <window title="WarningAsk" icon-name="gtk-dialog-warning">
 
@@ -122,9 +114,7 @@ export WarningAsk='
 					</text>
 				</vbox>
 		</hbox>
-
 				'"`funcList1`"'
-
 	</frame>
 
 		<hbox>

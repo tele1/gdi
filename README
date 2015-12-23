@@ -1,17 +1,12 @@
 
-
 GDI 		- PCLinuxOS desktop environment installation manager.
-			- Designed for PCLinuxOS system.
+			- Designed for PCLinuxOS.
 
-#       Name:     GDI   - Graphical Desktop Installer
-#       Version:  6 Beta
+#       Name:     GDI - Graphical Desktop Installer
+#       Version:  7 Beta
 #       License:  GNU GPL v3
-#                 https://gnu.org/licenses/gpl.html
-#		Date:     23.12.2015
-
-
-
-
+#       	  https://gnu.org/licenses/gpl.html
+#	Date:     23.12.2015
 
 ========= IMPORTANT DEPENDENCIES =========
 /etc/X11/dm/Sessions/*
@@ -31,16 +26,13 @@ sort
 png (library)
 svg (library)
 
-
-
-========= HOW RUN: =========
+========= HOW TO RUN GDI: =========
 
 		gksu ./gdi
 
-			or just from root
+			or just as root in current directory
 
 		./gdi
-
 
 ========= LOGS: =========
 - Logs are created in 
@@ -49,31 +41,29 @@ svg (library)
   You can change it in "functions" file. 
   (  line 85:     # Maximum number of files to keep  )
 
-
 ========= WARNINGS: =========
-- This software is dependent on repository,
-  this mean, make not work correct if repository was changed.
-- fvwm2 in 64 bit PCLinuxOS not create session file,
-  however other desktop enviroments can create.
-
+- Working of software depends on current repository state what
+  means, that GDI may not work correctly if repository has temporary issues like synchronising, offline state, etc.
+- fvwm2 in 64 bit PCLinuxOS does not create session file,
+  however other desktop enviroments' session files are created well.
 
 ========= Tips: ===========
 #-----------------------------------------------{
 # - How create ".list" file ?
-	#   ".list" file work how "task" package, this mean task install suggested packages for desktop environment,
-	#    but ".list" file have also some dependencies, because apt not removing dependencies,
-	#	remove all dependencies can broke system, so ".list" file have only part not important dependencies.
-	#	".list"files should be sorted, in list folder exist script which can help.
+	#   ".list" file works similar to "task" package. It means that task installs suggested packages for desktop environment,
+	#    but ".list" file have also added some dependencies, because apt doesn't remove some of them,
+	#    Removing all dependencies can broke system, so ".list" file keeps only part - not important dependencies.
+	#    ".list" files should be sorted, in list folder exists script which can help.
 
-	# Comand show which packages are needed for task-kde4
+	# Comand shows which packages are needed for task-kde4 metapackage
 	apt-cache depends task-kde4    
 	apt-cache depends task-kde4    | cut -d" " -f4 
 
-	# Command show which packages use AfterStep
+	# Command shows which packages use AfterStep metapackage
 	apt-cache whatdepends AfterStep
 #-----------------------------------------------}
 
-# How list all installed Desktop Enviroments:
+# How to list all installed Desktop Enviroments:
 	ls /etc/X11/dm/Sessions/
 	grep -h "Name=" /etc/X11/dm/Sessions/* | cut -c 6-
 
@@ -90,17 +80,14 @@ svg (library)
 	$ cat /etc/sysconfig/desktop
 	DISPLAYMANAGER=GNOME
 
-	$ cat $home.dmrc
+	$ cat $HOME/.dmrc
 	[Desktop]
 	Session=05MATE
 
 # - script "create.pot.and.po.files" help create ".po" files
 # - script "sort.sh" help sort files, because should be sorted.
 
-
 ========= History: ===========
 
 28.09.2015 - Alpha 
 19.12.2015 - Beta   
-
-

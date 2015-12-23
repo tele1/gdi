@@ -29,12 +29,12 @@ export WindowAbout='
 
 				<text use-markup="true">
 					<label>"
-<b>Graphical Desktop Installer.</b>"</label>
+<b>Graphical Desktop Installer</b>"</label>
 				</text>
 
 				<hbox homogeneous="true" space-expand="false" space-fill="false">
 					<button relief="2">
-						<label>Created in Gtkdialog and Bash.</label>
+						<label>Created in Gtkdialog and Bash</label>
 						<action>funcURLOpen "http://code.google.com/p/gtkdialog/"</action>
 					</button>
 				</hbox>
