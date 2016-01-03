@@ -3,10 +3,10 @@ GDI 		- PCLinuxOS desktop environment installation manager.
 			- Designed for PCLinuxOS.
 
 #       Name:     GDI - Graphical Desktop Installer
-#       Version:  7 Beta
+#       Version:  8 Beta
 #       License:  GNU GPL v3
 #       	  https://gnu.org/licenses/gpl.html
-#	Date:     23.12.2015
+#	Date:     3.01.2016
 
 ========= IMPORTANT DEPENDENCIES =========
 /etc/X11/dm/Sessions/*
