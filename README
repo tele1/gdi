@@ -23,6 +23,7 @@ apt
 comm
 arch
 sort
+tee
 png (library)
 svg (library)
 

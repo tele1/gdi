@@ -1,0 +1,28 @@
+#!/bin/sh
+
+ListLogs() {
+echo "$(ls -lt /var/log/gdi | awk '{print $9}' | grep -v '^$')"
+}
+export -f ListLogs
+
+export MAIN_DIALOG='
+<window title="GDI Logs">
+ <vbox>
+  <text use-markup="true"><label>"<b>'$"Available logs:"'</b>"</label></text>
+   <tree>
+     <height>200</height>
+     <width>320</width>
+     <label>""</label>
+     <variable>TREE</variable>
+     <input>"ListLogs"</input>
+   </tree>
+   <button>
+    <label>View last log</label>
+    <action>xdg-open /var/log/gdi/"$TREE"</action>
+   </button>
+   <button cancel>
+   </button>
+ </vbox>
+</window>'
+
+gtkdialog -c  --program MAIN_DIALOG

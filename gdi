@@ -64,9 +64,11 @@ gtkdialog -p SPLASH --center &
 
 
 # Your system is updated ? 0 -yes , < -no
+NAMELOG_UPDATES="$(date +"%Y-%m-%d_%R_%S").updates.log"
 echo "========= check for updates ====================={"
-time apt-get update
-time apt-get -s dist-upgrade | awk '/^Inst/ { print $2 }'| wc -l > /tmp/gdi/updates
+time apt-get update | tee /var/log/gdi/$NAMELOG_UPDATES
+echo "#------------------------------------------------" >> /var/log/gdi/$NAMELOG_UPDATES
+time apt-get -s dist-upgrade | tee -a /var/log/gdi/$NAMELOG_UPDATES | awk '/^Inst/ { print $2 }'| wc -l > /tmp/gdi/updates
 echo "==================================================}"
 
 UPDATEDSTATUS=$(cat /tmp/gdi/updates)
@@ -137,7 +139,7 @@ export MAIN_DIALOG='
 
 		<frame Status:>
 
-			<vbox scrollable="true" width-request="450" width="590" height="300">
+			<vbox scrollable="true" width-request="450" width="590" height="200">
 
 				<hbox homogeneous="true">
 					<text xalign="0">
@@ -490,6 +492,11 @@ export MAIN_DIALOG='
 		</frame>
 
 			<hbox>
+				<button space-fill="true">
+					<label>"GDI Logs"</label>
+					<action>echo "You pressed Log button"</action>
+					<action>. '"$PATH1"'/gdi.WindowViewLogs</action>
+				</button>
 				<button space-fill="true">
 					<input file>'"$PATH1"'/icons/gdi/test1.png</input>
 					<action>echo "You pressed GDI button"</action>
