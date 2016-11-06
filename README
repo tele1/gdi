@@ -85,6 +85,8 @@ svg (library)
 	[Desktop]
 	Session=05MATE
 
+# Languages:
+  Check: /gdi/data/languages/create.pot.and.po.files
 # - script "create.pot.and.po.files" help create ".po" files
 # - script "sort.sh" help sort files, because should be sorted.
 
