@@ -93,6 +93,6 @@ echo "==== 3. Now you can edit \".po\" files with Poedit. ===="
 
 #####################################################################################################################
 #
-echo "==== 4. After edit .po files, save with poedit to  \".mo\" filesor or create  \".mo\" files other way.  ===="
+echo "==== 4. After edit .po files, save with poedit to  \".mo\" files or create  \".mo\" files other way.  ===="
 #
 #####################################################################################################################
